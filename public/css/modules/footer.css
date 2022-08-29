@@ -1,0 +1,45 @@
+.footer__site {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 1rem 7rem 7rem 1rem;
+    color: snow;
+}
+.footer_card {
+    display: flex;
+}
+.footer_logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 10px 0;
+}
+.titulo_footer {
+    color: #2c2860;
+    margin: 0;
+    font-weight: bold;
+}
+footer .link {
+    color: #636161;
+}
+footer .link:hover {
+    color: orange;
+    font-weight: bold;
+}
+.footer_mobile a p {
+    margin: 6px 0;
+}
+.copy {
+    color: #2c2860;
+}
+.logo_footer img{
+    width: 250px;
+    border-radius: 5.5rem 1rem 5.5rem;
+}
+@media screen and (orientation: portrait), (max-width: 1000px) {
+    .footer__site,
+    .footer_card,
+    .footer_logos {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -1,0 +1,185 @@
+.banner {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.banner_img {
+    width: 100vw;
+    height: 400px;
+    background-color: darkgrey;
+    border-radius: 1rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner_centralizar{
+    display: flex;
+    justify-content: right;
+    margin-top: 200px;
+}
+.banner_txt {
+    width: 600px;
+    margin: 0 10px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    border-radius: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    justify-content: center;
+}
+.banner_texto h6{
+    text-align: center;
+}
+body .splide__pagination__page {
+    background: #2c2860;
+    border: 1px solid #2c2860;
+    /* margin: 12px 15px; */
+    width: 1.5rem;
+    height: 0.5rem;
+    transition: 0.5s;
+    border-radius: 5000px;
+    transform: rotate(180deg);
+    transition: 0.4s;
+}
+body .splide__pagination__page.is-active {
+    transform: none;
+    background: orange;
+    border: 1px solid orange;
+    opacity: 1;
+    width: 1.5rem;
+    height: 0.5rem;
+    /* width: 10px;
+    height: 40px; */
+}
+/* body .splide__pagination {
+    margin: 0px 1125px 0 0;
+} */
+body .splide__arrow.splide__arrow--prev {
+    display: none;
+}
+body .splide__arrow.splide__arrow--next {
+    display: none;
+}
+
+.exemplo {
+    animation-name: change_associado;
+    animation-duration: 2s;
+}
+
+@keyframes change_associado {
+    from {
+        margin: 6rem 0;
+    }
+    to {
+        margin: 0rem;
+        width: 400px;
+    }
+}
+.principal_produtos{
+    text-align: center;
+}
+.card_produtos{
+    display: flex;
+    justify-content: space-between;
+}
+.card_produto{
+    text-align: center;
+    margin: 0 25px;
+    width: 350px;
+    height: 300px;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    box-shadow: 2px 5px 15px rgba(50, 50, 50, 0.77);
+    border-radius: 1.5rem;
+}
+.card_img {
+    background-color: #2c2860;
+    height: 150px;
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+.card_produto:hover{
+    width: 400px;
+    height: 310px;
+    transition: 2s;
+}
+.btn_fale_conesoco{
+    /* background-color: #2c2860; */
+    background-color: orange;
+    color: #fff;
+    border-radius: 2rem;
+    margin-top: 40px;
+    padding: 5px 25px;
+}
+.fazemos{
+    display: flex;
+    justify-content: space-between;
+}
+.img_fazemos{
+    width: 450px;
+    background-color: darkgrey;
+}
+.mais_produtos{
+    margin-bottom: 50px;
+}
+.efeito{
+    position: absolute;
+    z-index: -1;
+    margin-top: -30px;
+}
+.corda{
+    width: 250vw;
+    height: 110px;
+}
+.center{
+    text-align: center;
+}
+.titulo{
+    color: #2c2860;
+    font-weight: bold;
+    margin: 50px 0;
+    text-align: center;
+}
+@media screen and (orientation: portrait), (max-width: 1000px) {
+    .mobile_none {
+        display: none;
+    }
+    .mapa_contato {
+        display: block;
+    }
+    .mapa_contato iframe {
+        width: 100%;
+    }
+    .formulario {
+        position: relative;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .texto_mobile {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .logocode {
+        position: relative;
+        margin: 5rem 0 1rem 0;
+    }
+    .banner_txt {
+        width: 90vw;
+        flex-direction: column;
+        margin: 45vw 0;
+        padding: 1rem;
+    }
+    .banner_img {
+        width: 90vw;
+        height: 450px;
+        background-color: darkgrey;
+        border-radius: 1rem 1rem 1rem 1rem;
+    }
+}

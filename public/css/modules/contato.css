@@ -1,0 +1,231 @@
+.banner_principal {
+    display: flex;
+}
+.banner_principal_texto {
+    width: 570px;
+    height: 300px;
+    margin: 2rem 0;
+}
+.banner_titulo {
+    margin-bottom: 3rem;
+}
+.banner_titulo h2 {
+    padding-left: 1rem;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    border-radius: 5rem;
+    width: 143px;
+}
+
+.banner_principal_imgs {
+    width: 570px;
+}
+
+@keyframes top {
+    to {
+        margin: 0;
+    }
+    from {
+        margin: 5rem 0px;
+    }
+}
+
+.banner_principal_img {
+    animation-name: top;
+    animation-duration: 3s;
+}
+
+.titulo_dados_pessoais {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.titulo_dados_pessoais h2 {
+    padding-left: 1rem;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    border-radius: 5rem;
+    width: 265px;
+}
+
+.titulo_mensagem {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.titulo_mensagem h2 {
+    padding-left: 1rem;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    border-radius: 5rem;
+    width: 260px;
+}
+
+.form_parceiro {
+    border: 1px solid red;
+    border-radius: 1rem;
+    padding: 5px 20px;
+    margin: 8px 0;
+}
+.form_nome {
+    width: 680px;
+}
+.form_email {
+    width: 520px;
+}
+.form_assunto {
+    width: 350px;
+}
+
+.form_mensagem {
+    width: 685px;
+    margin: -10px 0;
+}
+
+.btn_enviar {
+    border: 1px solid red;
+    border-radius: 1rem;
+    padding: 8px 20px;
+    margin: 1rem 0;
+}
+
+.mapa_contato {
+    display: flex;
+}
+
+.fundo_contato {
+    position: absolute;
+    margin: 0 -500px;
+}
+
+.formulario {
+    position: absolute;
+    margin: 3rem -20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_especifico {
+    border: 2px solid #000;
+    border-radius: 2rem;
+    padding: 3px 1rem;
+    margin: 10px 0;
+}
+
+.formulario_form {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+
+.texto_mobile {
+    margin: 0 2rem;
+    height: 350px;
+}
+.logocode {
+    position: absolute;
+    margin: 0rem 10rem;
+}
+
+@media screen and (orientation: portrait), (max-width: 1000px) {
+    .mobile_none,
+    .fundo_contato,
+    .dividir {
+        display: none;
+    }
+    .servicos_associados,
+    .mapa_contato {
+        display: block;
+    }
+    .servicos_associados_txt {
+        margin-top: 0;
+    }
+    .noticias_titulo {
+        margin-top: 3rem;
+    }
+    .noticias {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .img_veja {
+        width: 100vw;
+        margin: 11px 0;
+        background-color: rgba(0, 0, 0, 0.035);
+        border-radius: 2rem;
+    }
+    .parceiro_img {
+        margin: 1rem;
+        width: 18rem;
+    }
+    .mapa_contato iframe {
+        width: 100%;
+    }
+    .formulario {
+        position: relative;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .texto_mobile {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .logocode {
+        position: relative;
+        margin: 5rem 0 1rem 0;
+    }
+    .banner_txt {
+        width: 90vw;
+        flex-direction: column;
+        margin: 45vw 0;
+        padding: 1rem;
+    }
+    .banner_img {
+        width: 90vw;
+        height: 450px;
+        background-color: darkgrey;
+        border-radius: 1rem 1rem 1rem 1rem;
+    }
+    .card_associado {
+        width: 90vw;
+    }
+    .banner_principal {
+        display: block;
+    }
+    .banner_principal_texto {
+        width: 90vw;
+        height: auto;
+        text-align: justify;
+    }
+    .banner_principal_img {
+        width: 90vw;
+    }
+    .banner_titulo h2 {
+        width: 90vw;
+        text-align: center;
+        padding: 0;
+    }
+    .titulo_dados_pessoais h2,
+    .titulo_endereco h2,
+    .titulo_mensagem h2 {
+        width: 90vw;
+        height: auto;
+        text-align: center;
+    }
+    .form_parceiro {
+        width: 90vw !important;
+    }
+}

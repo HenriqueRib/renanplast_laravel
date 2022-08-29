@@ -1,0 +1,111 @@
+.principal_produtos{
+    text-align: center;
+}
+.card_produtos{
+    display: flex;
+    justify-content: space-between;
+}
+.card_produto{
+    text-align: center;
+    margin: 0 25px;
+    width: 350px;
+    height: 300px;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    box-shadow: 2px 5px 15px rgba(50, 50, 50, 0.77);
+    border-radius: 1.5rem;
+}
+.card_img {
+    background-color: #2c2860;
+    height: 150px;
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+.card_produto:hover{
+    width: 400px;
+    height: 310px;
+    transition: 2s;
+}
+.btn_fale_conesoco{
+    /* background-color: #2c2860; */
+    background-color: orange;
+    color: #fff;
+    border-radius: 2rem;
+    margin-top: 40px;
+    padding: 5px 25px;
+}
+
+.mais_produtos{
+    margin-bottom: 50px;
+}
+.efeito{
+    position: absolute;
+    z-index: -1;
+    margin-top: -30px;
+}
+.corda{
+    width: 250vw;
+    height: 110px;
+}
+.center{
+    text-align: center;
+}
+.titulo{
+    color: #2c2860;
+    font-weight: bold;
+    margin: 50px 0;
+    text-align: center;
+}
+
+
+@media screen and (orientation: portrait), (max-width: 1000px) {
+    .mobile_none{
+        display: none;
+    }
+    .mapa_contato {
+        display: block;
+    }
+    .mapa_contato iframe {
+        width: 100%;
+    }
+    .formulario {
+        position: relative;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logocode {
+        position: relative;
+        margin: 5rem 0 1rem 0;
+    }
+    .banner_txt {
+        width: 90vw;
+        flex-direction: column;
+        margin: 45vw 0;
+        padding: 1rem;
+    }
+    .banner_img {
+        width: 90vw;
+        height: 450px;
+        background-color: darkgrey;
+        border-radius: 1rem 1rem 1rem 1rem;
+    }
+    .banner_principal {
+        display: block;
+    }
+    .banner_principal_texto {
+        width: 90vw;
+        height: auto;
+        text-align: justify;
+    }
+    .banner_principal_img {
+        width: 90vw;
+    }
+    .banner_titulo h2 {
+        width: 90vw;
+        text-align: center;
+        padding: 0;
+    }
+
+}
