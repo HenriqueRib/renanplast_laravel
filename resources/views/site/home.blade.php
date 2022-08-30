@@ -62,7 +62,7 @@
                                     <div class="banner_centralizar">
                                         <div class="banner_txt">
                                             <div class="banner_texto">
-                                                <h3>Serviços com Plastico</h3>
+                                                <h3>Serviços com Plástico</h3>
                                                 <h6>
                                                     INFORMAÇÃO
                                                 </h6>
@@ -137,7 +137,7 @@
                     <p>Informação</p>
                     <h5>Manuais</h5>
                     <p>Informação</p>
-                    <h5>Plastico</h5>
+                    <h5>Plástico</h5>
                     <p>Informação</p>
                 </div>
             </div>
