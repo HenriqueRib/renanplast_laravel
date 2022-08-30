@@ -173,7 +173,6 @@ body .splide__arrow.splide__arrow--next {
     .banner_txt {
         width: 90vw;
         flex-direction: column;
-        margin: 45vw 0;
         padding: 1rem;
     }
     .banner_img {
@@ -182,4 +181,23 @@ body .splide__arrow.splide__arrow--next {
         background-color: darkgrey;
         border-radius: 1rem 1rem 1rem 1rem;
     }
+    .card_produtos{
+        flex-direction: column;
+    }
+    .card_produto{
+        margin: 15px 0;
+    }
+    .card_produto:hover{
+        width: 350px;
+        height: 300px;
+    }
+    .fazemos{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .img_fazemos{
+        width: 80vw;
+    }
+
 }

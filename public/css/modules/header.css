@@ -1,9 +1,6 @@
-/* div.desktop {
-    display: block;
-}
-nav.mobile {
+.desktop_none {
     display: none;
-} */
+}
 .navbar_personalizado {
     display: flex;
     justify-content: space-between;
@@ -83,8 +80,8 @@ nav.mobile {
 
 @media screen and (orientation: portrait),
 (max-width: 1000px) {
-    div.desktop {
-        display: none;
+    .desktop_none {
+        display: block;
     }
     nav.mobile {
         display: block;
@@ -104,6 +101,7 @@ nav.mobile {
     }
     .menu {
         margin: 0;
+        text-align: center;
     }
     .navbar-nav {
         align-items: center;

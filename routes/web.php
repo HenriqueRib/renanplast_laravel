@@ -19,6 +19,7 @@ Route::get('/', ['App\Http\Controllers\ClientController', 'home'])->name('home')
 Route::get('/sobre', ['App\Http\Controllers\ClientController', 'sobre'])->name('sobre');
 Route::get('/produtos', ['App\Http\Controllers\ClientController', 'produtos'])->name('produtos');
 Route::get('/contato', ['App\Http\Controllers\ClientController', 'contato'])->name('contato');
+Route::get('/construcao', ['App\Http\Controllers\ClientController', 'construcao'])->name('construcao');
 Route::post('/registercustom', ['App\Http\Controllers\RegisterController', 'store']);
 Auth::routes(['verify' => true]);
 
@@ -38,7 +39,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkAdmin'], function () {
         Route::post('/admin/user/delete', ['App\Http\Controllers\AdminController', 'user_delete'])->name('user_delete');
         Route::post('/admin/user/edit', ['App\Http\Controllers\AdminController', 'user_edit'])->name('user_edit');
         Route::post('/admin/user/search', ['App\Http\Controllers\AdminController', 'user_search'])->name('admin_user_search');
-
 
         Route::post('/create_user', ['App\Http\Controllers\RegisterController', 'create_user'])->name('admin_add_user');
     });

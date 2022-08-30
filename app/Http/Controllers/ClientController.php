@@ -15,6 +15,11 @@ class ClientController extends Controller
         // return view('site.home', compact('posts'));
     }
 
+    public function construcao()
+    {
+        return view('site.construcao');
+    }
+
     public function sobre()
     {
         return view('site.sobre');

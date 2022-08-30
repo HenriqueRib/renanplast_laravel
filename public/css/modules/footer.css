@@ -42,4 +42,7 @@ footer .link:hover {
         flex-direction: column;
         text-align: center;
     }
+    .logo_footer{
+        margin-bottom: 30px;
+    }
 }

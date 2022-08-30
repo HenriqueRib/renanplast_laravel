@@ -26,10 +26,6 @@
                     Esperamos por você!
                 </p>
             </div>
-
-        </div>
-        <div class="banner_principal_imgs">
-            <img class="banner_principal_img" src="/img/site/banner/parceiro.png">
         </div>
     </div>
 

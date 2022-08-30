@@ -1,6 +1,9 @@
 <div class="container">
     <!-- Navigation -->
     <nav class="navbar navbar_personalizado navbar-expand-lg navbar-light static-top">
+        <div class="desktop_none">
+
+        </div>
         <div class="">
             <a class="logo_desktop" href="/">
                 <img class="logo_mobile" src="/img/site/logo.png">
