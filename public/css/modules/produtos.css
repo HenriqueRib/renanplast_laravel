@@ -1,3 +1,14 @@
+
+.formulario_presquisar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-control{
+    width: 450px;
+    margin: 30px;
+    border-radius: 1rem 0.5rem;
+}
 .principal_produtos{
     text-align: center;
 }

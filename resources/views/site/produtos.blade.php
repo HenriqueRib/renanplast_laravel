@@ -11,7 +11,18 @@
 @section('content')
 
     <div class="container">
-
+        <div class="pesquisar">
+            <div>
+                <form action="{{ route('contato_email') }}" method="POST" id="formulario" class="formulario_presquisar">
+                    @csrf
+                    <input type="text" class="form-control" placeholder="Digite aqui o nome do produto" name="produto"
+                        id="produto" required>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div class="efeito">
