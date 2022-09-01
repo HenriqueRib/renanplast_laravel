@@ -29,8 +29,8 @@
                 </p>
             </div>
             <div class="banner_img">
-                <div class="img_contato">
-                    <img src="../img/site/banner/contato3.png" alt="imagem de contato">
+                <div class="img_contato" style="background-image: url('/img/site/banner/contato3.png')">
+                    {{-- <img src="../img/site/banner/contato3.png" alt="imagem de contato"> --}}
                 </div>
             </div>
         </div>

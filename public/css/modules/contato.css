@@ -16,6 +16,21 @@
 .banner_img{
     padding: 50px;
 }
+.img_contato{
+    width: 550px;
+    height: 250px;
+    background-size: 40vw ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position:  center;
+    background-repeat: no-repeat;
+    transition: 4s;
+    border-radius: 50rem 25rem;
+}
+.img_contato:hover{
+    background-size: 250% auto;
+}
 .img_contato img{
     width: 400px;
 }
@@ -89,6 +104,9 @@
 }
 
 @media screen and (orientation: portrait), (max-width: 1000px) {
+    .img_contato{
+        width: 90vw;
+    }
     .titulo{
         text-align: center;
     }
