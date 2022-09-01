@@ -15,6 +15,6 @@ window.cookieconsent.initialise({
         dismiss: "Aceitar",
         deny: "Recusar",
         link: "Leia mais",
-        href: "www.renaplast.com.br/privacidade",
+        href: "www.renanplast.com.br/privacidade",
     },
 });

@@ -10,21 +10,28 @@
 
 @section('content')
     @php
-    $esconde = 0;
+    $esconde = 1;
     @endphp
 
-    <div class="container banner_principal">
-        <div class="banner_principal_texto">
-            <div class="banner_titulo">
-                <h2>Contato</h2>
-            </div>
-            <div>
+    <div class="container">
+        <div class="banner_principal">
+            <div class="banner_texto">
+                <h2 class="titulo">Contato</h2>
                 <p>
-                    Texto
+                    Gostaria de obter maiores informações sobre O <b><i>renanplast</b></i>, entre em contato conosco.
+                </p>
+                <p>
+                    Preencha os campos
+                    abaixo que em breve retornaremos!
                 </p>
                 <p>
                     Esperamos por você!
                 </p>
+            </div>
+            <div class="banner_img">
+                <div class="img_contato">
+                    <img src="../img/site/banner/contato3.png" alt="imagem de contato">
+                </div>
             </div>
         </div>
     </div>
@@ -108,45 +115,36 @@
 
     @if ($esconde == 1)
         <div class="container">
-            <form action="{{ route('contato_email') }}" method="POST" id="formulario">
-                @csrf
-                <div>
-                    <div class="titulo_dados_pessoais">
-                        <h2>Dados Pessoais</h2>
-                    </div>
-                    <div>
-                        <input class="form_parceiro form_nome" type="text" placeholder="Nome" name="name"
-                            id="name" value="{{ old('name') }}" required>
-                        <div>
-                            <input class="form_parceiro form_email" type="text" placeholder="E-mail" name="email"
-                                id="email" value="{{ old('email') }}" onblur="valida()" required>
-                            <div class="alert alert-danger email-validation hide-self form_parceiro form_email"
-                                style="margin: 1px">
+            <div class="contato_card_center">
+                <div class="contato_formulario">
+                    <div class="input_function">
+                        <form action="{{ route('contato_email') }}" method="POST" id="formulario">
+                            @csrf
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" placeholder="Digite aqui seu nome" name="nome"
+                                id="nome" required>
+                            <label for="telefone">Número de telefone</label>
+                            <input type="text" class="form-control" placeholder="00000-0000" name="telefone"
+                                id="telefone" required>
+                            <label for="E-mail">E-mail</label>
+                            <input type="text" class="form-control" placeholder="seuemail@site.com.br" name="email"
+                                id="email" onblur="valida()" required>
+                            <div class="alert alert-danger email-validation hide-self">
                                 Digite um e-mail valido
                             </div>
-                        </div>
-                        <div>
-                            <input class="form_parceiro form_assunto" type="text" placeholder="Assunto" name="subject"
-                                value="{{ old('subject') }}" id="subject">
-                        </div>
+                            <label for="assunto">Assunto</label>
+                            <input type="text" class="form-control" placeholder="Digite aqui o assunto" name="assunto"
+                                id="assunto" required>
+                            <label for="mensagem">Mensagem</label>
+                            <textarea required class="form-control" placeholder="Digite aqui sua mensagem" rows="6" name="mensagem"
+                                id="text" required></textarea>
+                            <div class="contato_card_center">
+                                <button type="submit" class="btn btn_enviar ">Enviar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div>
-                    <div class="titulo_mensagem">
-                        <h2>Sua Mensagem</h2>
-                    </div>
-                    <div>
-                        <textarea class="form_parceiro form_mensagem" type="text" rows="5" name="text" id="text">{{ old('text') }}</textarea>
-                    </div>
-                    <div class="g-recaptcha mt-5 " data-sitekey="6LfXj0seAAAAAK9QkpJ27rFipTE3t9VGHdlsvzgl"
-                        data-callback="enableBtn"></div>
-                    <button class="btn btn_enviar" disabled="disabled">
-                        <b>Enviar </b>
-                        &nbsp;
-                        <img src="/img/site/icones/avancar.png">
-                    </button>
-                </div>
-            </form>
+            </div>
         </div>
     @endif
 

@@ -9,9 +9,9 @@
 @section('meta-description', 'Entre e acesse o site da RenanPlast')
 
 @section('content')
-    @if ('/?q=1' != $_SERVER['REQUEST_URI'])
+    {{-- @if ('/?q=1' != $_SERVER['REQUEST_URI'])
         <meta http-equiv="Refresh" content="0; url=/construcao" />
-    @endif
+    @endif --}}
 
     <div class="container">
         <div class="splide_banner">
