@@ -1,0 +1,243 @@
+.formulario_presquisar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-control{
+    width: 450px;
+    margin: 30px;
+    border-radius: 1rem 0.5rem;
+}
+/* .splide__slide img {
+    width: 100%;
+    height: auto;
+}
+.splide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.splide__slide {
+    opacity: 0.6;
+}
+
+.splide__slide.is-active {
+    opacity: 1;
+}
+ */
+:root {
+    --current-image-height: 300px;
+    --thumbnails-track-height: 90px;
+}
+.carousel {
+    max-width: 400px;
+}
+.current-image {
+    margin-bottom: 1px;
+}
+.current-image img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.thumbnails-track {
+    position: relative;
+}
+.thumbnail {
+    flex: 0 0 var(--thumbnail-width);
+    margin-right: 1px;
+    position: relative;
+}
+.thumbnail-button {
+    display: block;
+    padding: 0;
+    height: var(--thumbnails-track-height);
+    width: 100%;
+    cursor: pointer;
+    border: 0;
+    background: none;
+    background-color: rgba(0,0,0,.4);
+    transition: opacity .1s linear;
+}
+.thumbnail-button:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: box-shadow .1s linear;
+}
+.thumbnail-button:focus {
+    outline: 0;
+}
+.thumbnail-button:focus:before {
+    box-shadow: inset 0 0 0 1px black,
+                inset 0 0 0 4px white;
+}
+.thumbnail-button:focus img,
+.thumbnail-button:hover img,
+.thumbnail-button[aria-current="true"] img {
+    opacity: 1;
+    filter: grayscale(0);
+}
+.thumbnail-button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .5;
+    filter: grayscale(.6);
+    transition: all .1s linear;
+}
+.destaque_produto{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+}
+.produto_texto{
+    display: flex;
+    flex-direction: column;
+}
+.produto_linha{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.produto_linha p {
+    margin: 0;
+}
+.produto_btn{
+    text-align: center;
+}
+.faleconosco_btn {
+    background-color: #2c2860;
+    color: #fff;
+}
+.carrosel_produto{
+    background-color: #2c2;
+    width: 500px;
+}
+
+.principal_produtos{
+    text-align: center;
+}
+.card_produtos{
+    display: flex;
+    justify-content: space-between;
+}
+.card_produto{
+    text-align: center;
+    margin: 0 25px;
+    width: 350px;
+    height: 300px;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    box-shadow: 2px 5px 15px rgba(50, 50, 50, 0.77);
+    border-radius: 1.5rem;
+}
+.card_img {
+    background-color: #2c2860;
+    height: 150px;
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+.card_produto:hover{
+    width: 400px;
+    height: 310px;
+    transition: 2s;
+}
+.btn_fale_conesoco{
+    /* background-color: #2c2860; */
+    background-color: orange;
+    color: #fff;
+    border-radius: 2rem;
+    margin-top: 40px;
+    padding: 5px 25px;
+}
+
+.mais_produtos{
+    margin-bottom: 50px;
+}
+.efeito{
+    position: absolute;
+    z-index: -1;
+    margin-top: -30px;
+}
+.corda{
+    width: 250vw;
+    height: 110px;
+}
+.center{
+    text-align: center;
+}
+.titulo{
+    color: #2c2860;
+    font-weight: bold;
+    margin: 50px 0;
+    text-align: center;
+}
+
+
+@media screen and (orientation: portrait), (max-width: 1000px) {
+    .mobile_none{
+        display: none;
+    }
+    .mapa_contato {
+        display: block;
+    }
+    .mapa_contato iframe {
+        width: 100%;
+    }
+    .formulario {
+        position: relative;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logocode {
+        position: relative;
+        margin: 5rem 0 1rem 0;
+    }
+    .banner_txt {
+        width: 90vw;
+        flex-direction: column;
+        margin: 45vw 0;
+        padding: 1rem;
+    }
+    .banner_img {
+        width: 90vw;
+        height: 450px;
+        background-color: darkgrey;
+        border-radius: 1rem 1rem 1rem 1rem;
+    }
+    .banner_principal {
+        display: block;
+    }
+    .banner_principal_texto {
+        width: 90vw;
+        height: auto;
+        text-align: justify;
+    }
+    .banner_principal_img {
+        width: 90vw;
+    }
+    .banner_titulo h2 {
+        width: 90vw;
+        text-align: center;
+        padding: 0;
+    }
+    .card_produtos{
+        flex-direction: column;
+    }
+    .card_produto{
+        margin: 15px 0;
+    }
+    .card_produto:hover{
+        width: 350px;
+        height: 300px;
+    }
+
+}

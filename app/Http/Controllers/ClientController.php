@@ -29,6 +29,10 @@ class ClientController extends Controller
     {
         return view('site.produtos');
     }
+    public function produto()
+    {
+        return view('site.produto');
+    }
 
     public function contato()
     {

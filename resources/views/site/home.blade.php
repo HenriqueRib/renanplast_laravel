@@ -90,13 +90,15 @@
         <h2 class="titulo">Nosso principais produtos</h2>
         <div class="principal_produtos">
             <div class="card_produtos">
-                <div class="card_produto">
-                    <div class="card_img">
-                        <img src="" alt="produto 1">
+                <a href="/produto" class="link">
+                    <div class="card_produto">
+                        <div class="card_img">
+                            <img src="" alt="produto 1">
+                        </div>
+                        <h5>Nome Produto 1</h5>
+                        <p>Descrição produto</p>
                     </div>
-                    <h5>Nome Produto</h5>
-                    <p>Descrição produto</p>
-                </div>
+                </a>
                 <div class="card_produto">
                     <div class="card_img">
                         <img src="" alt="produto 1">
