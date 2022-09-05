@@ -17,12 +17,13 @@
             <li class="@if (Route::currentRouteName() == 'admin_index') active @endif">
                 <a href="{{ route('admin_index') }}"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
-            @if (Auth::user()->level == 1)
-                <li class="@if (Route::currentRouteName() == 'admin_administradores') active @endif">
-                    <a href="{{ route('admin_administradores') }}"><span class="fas fa-user-shield mr-3"></span>
-                        Usuários</a>
-                </li>
-            @endif
+            <li class="@if (Route::currentRouteName() == 'admin_configuracao') active @endif">
+                <a href="{{ route('admin_produtos') }}"><span class="fas fa-syringe mr-3"></span> Produtos</a>
+            </li>
+            <li class="@if (Route::currentRouteName() == 'admin_administradores') active @endif">
+                <a href="{{ route('admin_administradores') }}"><span class="fas fa-user-shield mr-3"></span>
+                    Usuários</a>
+            </li>
             <li class="@if (Route::currentRouteName() == 'admin_configuracao') active @endif">
                 <a href="{{ route('admin_configuracao') }}"><span class="fa fa-cog mr-3"></span> Configuração</a>
             </li>

@@ -41,6 +41,15 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkAdmin'], function () {
         Route::post('/admin/user/edit', ['App\Http\Controllers\AdminController', 'user_edit'])->name('user_edit');
         Route::post('/admin/user/search', ['App\Http\Controllers\AdminController', 'user_search'])->name('admin_user_search');
 
+        //
+        Route::get('/produtos', ['App\Http\Controllers\AdminController', 'produtos'])->name('admin_produtos');
+        Route::post('/produtos/new', ['App\Http\Controllers\AdminController', 'produtos_add'])->name('admin_produtos_add');
+        // Route::post('/produtos/new/tinymce_data', ['App\Http\Controllers\AdminController', 'produtos_add_tinymce_data']);
+        Route::post('/produtos/search', ['App\Http\Controllers\AdminController', 'post_search'])->name('admin_produtos_search');
+        Route::post('/produtos/edit', ['App\Http\Controllers\AdminController', 'post_edit'])->name('admin_produtos_edit');
+        Route::post('/produtos/delete', ['App\Http\Controllers\AdminController', 'post_delete'])->name('admin_produtos_delete');
+
+
         Route::post('/create_user', ['App\Http\Controllers\RegisterController', 'create_user'])->name('admin_add_user');
     });
 

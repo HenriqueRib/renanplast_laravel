@@ -26,25 +26,27 @@ class AdminController extends Controller
     }
 
     // Produto
-    // public function posts()
-    // {
-    //     $posts = Post::orderBy('id', 'desc')->get();
-    //     return view('admin.posts', compact('posts'));
-    // }
+    public function produtos()
+    {
+        // $posts = Post::orderBy('id', 'desc')->get();
+        // return view('admin.posts', compact('posts'));
+        $produtos = [];
+        return view('admin.produtos', compact('produtos'));
+    }
 
-    // public function posts_add(Request $request)
-    // {
-    //     $post = Post::create($request->all());
+    public function posts_add(Request $request)
+    {
+        // $post = Post::create($request->all());
 
-    //     $file = $request->file('image');
-    //     $nameFile = rand(0, 1000) . $file->getClientOriginalName();
-    //     $path = '/uploads/' . $nameFile;
-    //     $file->move(public_path("/uploads/"), $nameFile);
+        // $file = $request->file('image');
+        // $nameFile = rand(0, 1000) . $file->getClientOriginalName();
+        // $path = '/uploads/' . $nameFile;
+        // $file->move(public_path("/uploads/"), $nameFile);
 
-    //     $post->image = $path;
-    //     $post->save();
-    //     return redirect()->route('admin_posts');
-    // }
+        // $post->image = $path;
+        // $post->save();
+        // return redirect()->route('admin_posts');
+    }
 
     // public function posts_add_tinymce_data(Request $request)
     // {
@@ -57,67 +59,67 @@ class AdminController extends Controller
     //     return json_encode(['location' => $fileNameToStore]);
     // }
 
-    // public function post_edit(Request $request)
-    // {
-    //     $post_id = $request->id;
-    //     $post = Post::find($post_id);
-    //     // dd($post);
+    public function post_edit(Request $request)
+    {
+        // $post_id = $request->id;
+        // $post = Post::find($post_id);
+        // // dd($post);
 
-    //     if (isset($request->image)) {
-    //         $image = $post->image;
+        // if (isset($request->image)) {
+        //     $image = $post->image;
 
-    //         if (file_exists('.' . $image)) {
-    //             unlink('.' . $image);
-    //         }
+        //     if (file_exists('.' . $image)) {
+        //         unlink('.' . $image);
+        //     }
 
-    //         $file = $request->file('image');
-    //         $nameFile = rand(0, 1000) . $file->getClientOriginalName();
-    //         $path = '/uploads/' . $nameFile;
-    //         $file->move(public_path("/uploads/"), $nameFile);
-    //         $post->image = $path;
-    //     }
+        //     $file = $request->file('image');
+        //     $nameFile = rand(0, 1000) . $file->getClientOriginalName();
+        //     $path = '/uploads/' . $nameFile;
+        //     $file->move(public_path("/uploads/"), $nameFile);
+        //     $post->image = $path;
+        // }
 
-    //     $post->title = $request->title;
-    //     $post->description = $request->description;
-    //     $post->date = $request->date;
-    //     $post->txt = $request->txt;
+        // $post->title = $request->title;
+        // $post->description = $request->description;
+        // $post->date = $request->date;
+        // $post->txt = $request->txt;
 
-    //     $post->save();
-    //     return redirect()->route('admin_posts');
-    // }
+        // $post->save();
+        // return redirect()->route('admin_posts');
+    }
 
-    // public function post_search(Request $request)
-    // {
-    //     $query = Post::select('title', 'date', 'description', 'image', 'txt', 'id')->orderBy('id', 'desc');
+    public function post_search(Request $request)
+    {
+        // $query = Post::select('title', 'date', 'description', 'image', 'txt', 'id')->orderBy('id', 'desc');
 
-    //     if ($request['title'] != null) {
-    //         $query->where('title', 'like', '%' . $request['title']);
-    //     }
-    //     if ($request['date'] != null) {
-    //         $query->whereDate('date', '=', $request['date']);
-    //     }
+        // if ($request['title'] != null) {
+        //     $query->where('title', 'like', '%' . $request['title']);
+        // }
+        // if ($request['date'] != null) {
+        //     $query->whereDate('date', '=', $request['date']);
+        // }
 
-    //     return view('admin.posts', [
-    //         'posts' => $query->get(),
-    //         'paramstitle' => $request['title'],
-    //         'paramsdate' => $request['date'],
-    //     ]);
-    // }
+        // return view('admin.posts', [
+        //     'posts' => $query->get(),
+        //     'paramstitle' => $request['title'],
+        //     'paramsdate' => $request['date'],
+        // ]);
+    }
 
-    // public function post_delete(Request $request)
-    // {
-    //     $post = Post::find($request->id);
+    public function post_delete(Request $request)
+    {
+        // $post = Post::find($request->id);
+        // $image = $post->image;
+        // if (isset($image)) {
+        //     if (file_exists('.' . $image)) {
+        //         unlink('.' . $image);
+        //     }
+        // }
+        // $post->delete();
+        return redirect()->route('admin_posts');
+    }
 
-    //     $image = $post->image;
-    //     if (isset($image)) {
-    //         if (file_exists('.' . $image)) {
-    //             unlink('.' . $image);
-    //         }
-    //     }
-
-    //     $post->delete();
-    //     return redirect()->route('admin_posts');
-    // }
+    //Fim produtos
 
     public function administradores()
     {
