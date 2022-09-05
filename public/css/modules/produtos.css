@@ -1,4 +1,3 @@
-
 .formulario_presquisar{
     display: flex;
     justify-content: center;
@@ -11,6 +10,8 @@
 }
 .principal_produtos{
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .card_produtos{
     display: flex;
@@ -47,6 +48,8 @@
 
 .mais_produtos{
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
 }
 .efeito{
     position: absolute;

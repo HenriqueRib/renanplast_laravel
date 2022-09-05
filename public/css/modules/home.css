@@ -78,6 +78,8 @@ body .splide__arrow.splide__arrow--next {
 }
 .principal_produtos{
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .card_produtos{
     display: flex;
@@ -121,6 +123,8 @@ body .splide__arrow.splide__arrow--next {
 }
 .mais_produtos{
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
 }
 .efeito{
     position: absolute;

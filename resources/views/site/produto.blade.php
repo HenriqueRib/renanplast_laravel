@@ -68,6 +68,37 @@
                                                 alt="image 5 of 5" data-full-alt="Succulents 5">
                                         </button>
                                     </div>
+                                    <div class="thumbnail splide__slide">
+                                        <button class="thumbnail-button">
+                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
+                                                alt="image 5 of 5" data-full-alt="Succulents 5">
+                                        </button>
+                                    </div>
+                                    <div class="thumbnail splide__slide">
+                                        <button class="thumbnail-button">
+                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
+                                                alt="image 5 of 5" data-full-alt="Succulents 5">
+                                        </button>
+                                    </div>
+
+                                    <div class="thumbnail splide__slide">
+                                        <button class="thumbnail-button">
+                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
+                                                alt="image 5 of 5" data-full-alt="Succulents 5">
+                                        </button>
+                                    </div>
+                                    <div class="thumbnail splide__slide">
+                                        <button class="thumbnail-button">
+                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
+                                                alt="image 5 of 5" data-full-alt="Succulents 5">
+                                        </button>
+                                    </div>
+                                    <div class="thumbnail splide__slide">
+                                        <button class="thumbnail-button">
+                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
+                                                alt="image 5 of 5" data-full-alt="Succulents 5">
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,15 +124,23 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="descricao"> 
+            <div class="descricao_texto">
+                <h4>Descrição</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse cupiditate accusantium a sapiente delectus quasi possimus tempora explicabo consequatur quia eos assumenda similique officia, soluta odit laboriosam neque architecto eaque!</p>
+            </div>
+        </div>
+    </div>
 
 @endsection
 
 @push('footerData')
     <script>
-        // var currentImage;
-        // var splide;
-        // var previousButton, nextButton;
-        // var thumbnails, thumbnailButtons;
+        var currentImage;
+        var splide;
+        var previousButton, nextButton;
+        var thumbnails, thumbnailButtons;
 
         window.addEventListener('DOMContentLoaded', function(e) {
             currentImage = document.querySelector('.current-image');
