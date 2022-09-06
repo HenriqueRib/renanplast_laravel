@@ -15,49 +15,47 @@
                     <form action="{{ route('admin_produtos_add') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="title">Nome do produto</label>
-                            <input required type="text" name="title" id="title" class="form-control"
+                            <label for="nome">Nome do produto</label>
+                            <input required type="text" name="nome" id="nome" class="form-control"
                                 maxlength="80">
                         </div>
                         <div class="form-group">
-                            <label for="description">Descrição do produto</label>
+                            <label for="descricao">Descrição do produto</label>
                             <textarea required="" class="form-control" placeholder="Digite aqui a descrição do produto" rows="2"
-                                name="mensagem" id="text"></textarea>
+                                name="descricao" id="descricao"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="description">Modo de uso</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="mensagem"
-                                id="text"></textarea>
+                            <label for="modo">Modo de uso</label>
+                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
+                                id="modo"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="description">Medidas</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="mensagem"
-                                id="text"></textarea>
+                            <label for="medidas">Medidas</label>
+                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
+                                id="medidas"></textarea>
                         </div>
-                        <h4>
-                            Cores + Informações + </h4>
                         <div class="form-group item__column" style="display: flex">
                             <div>
-                                <label for="title">Lote</label>
-                                <input required type="text" name="title" id="title" class="form-control"
+                                <label for="lote">Lote</label>
+                                <input required type="text" name="lote" id="lote" class="form-control"
                                     maxlength="80">
                             </div>
                             <div style="margin:0 2rem">
-                                <label for="title">Numero de Série</label>
-                                <input required type="text" name="title" id="title" class="form-control"
+                                <label for="serie">Numero de Série</label>
+                                <input required type="text" name="serie" id="serie" class="form-control"
                                     maxlength="80">
                             </div>
                             <div style="margin:0 0rem">
-                                <label for="categoria">Em Estoque</label>
-                                <select required type="text" name="categoria" id="categoria" class="form-control">
+                                <label for="estoque">Em Estoque</label>
+                                <select required type="text" name="estoque" id="estoque" class="form-control">
                                     <option selected disabled> Escolha uma opção</option>
                                     <option value="sim">Sim</option>
                                     <option value="nao">Não</option>
                                 </select>
                             </div>
                             <div style="margin:0 2rem">
-                                <label for="categoria">Ativo no site</label>
-                                <select required type="text" name="categoria" id="categoria" class="form-control">
+                                <label for="ativo">Ativo no site</label>
+                                <select required type="text" name="ativo" id="ativo" class="form-control">
                                     <option selected disabled> Escolha uma Opção</option>
                                     <option value="sim">Sim</option>
                                     <option value="nao">Não</option>
@@ -65,34 +63,25 @@
                             </div>
                             <div style="margin:0 2rem">
                                 <div>
-                                    <label for="categoria">
-                                        Selecione um ou mais Categorias:
+                                    <label for="cores">
+                                        Selecione um ou mais Cores
                                     </label>
                                 </div>
-                                <select class="select2 form-control" id="categoria" name="categoria[]" multiple=""
+                                <select class="select2 form-control" id="cores" name="cores[]" multiple=""
                                     tabindex="-1" style="display: none; width: 250px;">
-                                    <option value="Reserva de Hoteis">Reserva de Hoteis</option>
-                                    <option value="Seguro Viagem">Seguro Viagem</option>
-                                    <option value="Ingressos">Ingressos</option>
-                                    <option value="Aluguel de Carros">Aluguel de Carros</option>
-                                    <option value="Passagens Promocionais">Passagens Promocionais</option>
-                                    <option value="Chip Internacional">Chip Internacional</option>
-
-                                    <option value="Pelo Mundo">Pelo Mundo</option>
-                                    <option value="Destinos">Destinos</option>
-                                    <option value="Milhas e Pontos">Milhas e Pontos</option>
-                                    <option value="Dicas">Dicas</option>
-                                    <option value="Reviews">Reviews</option>
-
-                                    <option value="Outros">Outros</option>
+                                    <option value="Azul">Azul</option>
+                                    <option value="Rosa">Rosa</option>
+                                    <option value="Branco">Branco</option>
+                                    <option value="Dorado">Dorado</option>
+                                    <option value="Sem cor">Sem cor</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="description">Observação</label>
-                            <textarea required="" class="form-control"
+                            <label for="observacao">Observação</label>
+                            <textarea class="form-control"
                                 placeholder="Digite aqui uma observação se desejar. Esta observação nãoi ficará visivel no site" rows="1"
-                                name="mensagem" id="text"></textarea>
+                                name="observacao" id="observacao"></textarea>
                         </div>
                         <div class="form-group item__column" style="display: flex">
                             <div style="margin:0 2rem 0 0rem">
@@ -101,18 +90,13 @@
                                     name="image">
                             </div>
                             <div style="margin:0 ">
-                                <label for="image">Mais Imagems do produto</label>
-                                <input required class="form-control py-1" type="file" accept="image/*" id="image"
-                                    name="image">
+                                <label for="imagem_produto">Mais Imagems do produto</label>
+                                <input required class="form-control py-1" type="file" accept="image/*"
+                                    id="imagem_produto" name="imagem_produto">
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="txt">Conteúdo da Notícia</label>
-                            <textarea class="form-control" name="txt" id="txt" class="txt"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn_custom">Salvar Notícia</button>
+                            <button type="submit" class="btn btn_custom">Salvar Produto</button>
                             <button type="reset" class="btn btn_custom2">Limpar Dados</button>
                             <a class="btn btn-danger" data-toggle="collapse" href="#openNewPost" role="button"
                                 aria-expanded="false" aria-controls="openNewPost">Cancelar</a>
