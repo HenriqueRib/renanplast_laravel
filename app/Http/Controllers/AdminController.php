@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
-use Throwable;
-use Barryvdh\DomPDF\Facade as PDF;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -28,24 +24,50 @@ class AdminController extends Controller
     // Produto
     public function produtos()
     {
-        // $posts = Post::orderBy('id', 'desc')->get();
         // return view('admin.posts', compact('posts'));
-        $produtos = [];
+        $produtos = Produto::orderBy('id', 'desc')->get();
+        // $produtos = [];
         return view('admin.produtos', compact('produtos'));
     }
 
-    public function posts_add(Request $request)
+    public function produtos_add(Request $request)
     {
-        // $post = Post::create($request->all());
-
-        // $file = $request->file('image');
-        // $nameFile = rand(0, 1000) . $file->getClientOriginalName();
-        // $path = '/uploads/' . $nameFile;
-        // $file->move(public_path("/uploads/"), $nameFile);
-
-        // $post->image = $path;
-        // $post->save();
-        // return redirect()->route('admin_posts');
+        try {
+            $params = $request->all();
+            if (!isset($params['cores'])) {
+                $request->session()->flash('error', 'Campo Cores é obrigatório');
+                $params['cores'] = ["Sem cor"];
+            }
+            if (!isset($params['estoque'])) {
+                $request->session()->flash('error', 'Campo Estoque é obrigatório');
+                return redirect()->back()->withInput();
+            }
+            if (!isset($params['ativo'])) {
+                $request->session()->flash('error', 'Campo Ativo é obrigatório');
+                return redirect()->back()->withInput();
+            }
+            $params['cores'] = implode(", ", $params['cores']);
+            // dd($params);
+            $produto = Produto::create($params);
+            $file = $request->file('image');
+            $nameFile = rand(0, 1000) . $file->getClientOriginalName();
+            $path = "/uploads/produtos/" . $produto->id . "/" . $nameFile;
+            $file->move(public_path("/uploads/produtos/" . $produto->id . "/"), $nameFile);
+            $produto->image = $path;
+            $produto->save();
+            $request->session()->flash('status', 'Seu produto foi cadastrado com sucesso.');
+            return redirect()->route('admin_produtos');
+        } catch (Exception $e) {
+            // dd($e);
+            $request->session()->flash('error', 'O correu um erro. Tente novamente mais tarde.');
+            Log::debug("Erro ao adicionar produto", [
+                'request' => $request->all(),
+                'arquivo' => $e->getFile(),
+                'linha' => $e->getLine(),
+                'erro' => $e->getMessage(),
+            ]);
+            return redirect()->back();
+        }
     }
 
     // public function posts_add_tinymce_data(Request $request)
@@ -59,7 +81,7 @@ class AdminController extends Controller
     //     return json_encode(['location' => $fileNameToStore]);
     // }
 
-    public function post_edit(Request $request)
+    public function produto_edit(Request $request)
     {
         // $post_id = $request->id;
         // $post = Post::find($post_id);
@@ -88,7 +110,7 @@ class AdminController extends Controller
         // return redirect()->route('admin_posts');
     }
 
-    public function post_search(Request $request)
+    public function produto_search(Request $request)
     {
         // $query = Post::select('title', 'date', 'description', 'image', 'txt', 'id')->orderBy('id', 'desc');
 
@@ -106,17 +128,29 @@ class AdminController extends Controller
         // ]);
     }
 
-    public function post_delete(Request $request)
+    public function produto_delete(Request $request)
     {
-        // $post = Post::find($request->id);
-        // $image = $post->image;
-        // if (isset($image)) {
-        //     if (file_exists('.' . $image)) {
-        //         unlink('.' . $image);
-        //     }
-        // }
-        // $post->delete();
-        return redirect()->route('admin_posts');
+        try {
+            $produto = Produto::find($request->id);
+            $image = $produto->image;
+            if (isset($image)) {
+                if (file_exists('.' . $image)) {
+                    unlink('.' . $image);
+                }
+            }
+            $produto->delete();
+            $request->session()->flash('status', "O produto $produto->nome foi deletado com sucesso.");
+            return redirect()->route('admin_produtos');
+        } catch (Exception $e) {
+            $request->session()->flash('error', 'O correu um erro. Tente novamente mais tarde.');
+            Log::debug("Erro ao Deletar o produto", [
+                'request' => $request->all(),
+                'arquivo' => $e->getFile(),
+                'linha' => $e->getLine(),
+                'erro' => $e->getMessage(),
+            ]);
+            return redirect()->back();
+        }
     }
 
     //Fim produtos

@@ -114,12 +114,12 @@
                     <p>Descrição produto</p>
                 </div>
             </div>
-            <div>
-                <button class="btn btn_fale_conesoco">
-                    Veja mais produtos
-                </button>
-            </div>
         </div>
+    </div>
+    <div class="center">
+        <button class="btn btn_fale_conesoco">
+            Veja mais produtos
+        </button>
     </div>
 
     <div class="efeito">

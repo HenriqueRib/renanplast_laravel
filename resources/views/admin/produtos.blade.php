@@ -9,46 +9,52 @@
         <div class="content card">
             <h3 class="card-header">Produtos <a class="btn btn_custom" data-toggle="collapse" href="#openNewPost" role="button"
                     aria-expanded="false" aria-controls="openNewPost">Adicionar Produtos +</a></h3>
-            {{-- <div class="collapse" id="openNewPost"> --}}
-            <div>
+            <div class="collapse" id="openNewPost">
+            {{-- <div> --}}
                 <div class="card card-body">
                     <form action="{{ route('admin_produtos_add') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="nome">Nome do produto</label>
-                            <input required type="text" name="nome" id="nome" class="form-control"
-                                maxlength="80">
+                            <input required type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}"
+                                maxlength="120">
                         </div>
                         <div class="form-group">
                             <label for="descricao">Descrição do produto</label>
                             <textarea required="" class="form-control" placeholder="Digite aqui a descrição do produto" rows="2"
-                                name="descricao" id="descricao"></textarea>
+                                name="descricao" id="descricao" value="{{ old('descricao') }}">{{ old('descricao') }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="modo">Modo de uso</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
-                                id="modo"></textarea>
+                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo" value="{{ old('modo') }}"
+                                id="modo">{{ old('modo') }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="medidas">Medidas</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
-                                id="medidas"></textarea>
+                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas" value="{{ old('medidas') }}"
+                                id="medidas">{{ old('medidas') }}</textarea>
                         </div>
                         <div class="form-group item__column" style="display: flex">
                             <div>
                                 <label for="lote">Lote</label>
-                                <input required type="text" name="lote" id="lote" class="form-control"
+                                <input required type="text" name="lote" id="lote" class="form-control" value="{{ old('lote') }}"
                                     maxlength="80">
                             </div>
                             <div style="margin:0 2rem">
                                 <label for="serie">Numero de Série</label>
-                                <input required type="text" name="serie" id="serie" class="form-control"
+                                <input required type="text" name="serie" id="serie" class="form-control" value="{{ old('serie') }}"
                                     maxlength="80">
                             </div>
+                            <div>
+                                <label for="preco">Preço</label>
+                                <input required type="text" name="preco" id="preco" class="form-control" value="{{ old('preco') }}">
+                            </div>
+                        </div>
+                        <div class="form-group item__column" style="display: flex">
                             <div style="margin:0 0rem">
                                 <label for="estoque">Em Estoque</label>
                                 <select required type="text" name="estoque" id="estoque" class="form-control">
-                                    <option selected disabled> Escolha uma opção</option>
+                                     <option selected disabled> Escolha uma opção</option> 
                                     <option value="sim">Sim</option>
                                     <option value="nao">Não</option>
                                 </select>
@@ -81,19 +87,21 @@
                             <label for="observacao">Observação</label>
                             <textarea class="form-control"
                                 placeholder="Digite aqui uma observação se desejar. Esta observação nãoi ficará visivel no site" rows="1"
-                                name="observacao" id="observacao"></textarea>
+                                value="{{ old('observacao') }}"
+                                name="observacao" id="observacao" ></textarea>
                         </div>
+                        
                         <div class="form-group item__column" style="display: flex">
                             <div style="margin:0 2rem 0 0rem">
                                 <label for="image">Imagem principal do produto</label>
                                 <input required class="form-control py-1" type="file" accept="image/*" id="image"
                                     name="image">
                             </div>
-                            <div style="margin:0 ">
+                            {{-- <div style="margin:0 ">
                                 <label for="imagem_produto">Mais Imagems do produto</label>
                                 <input required class="form-control py-1" type="file" accept="image/*"
                                     id="imagem_produto" name="imagem_produto">
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn_custom">Salvar Produto</button>
@@ -156,19 +164,24 @@
                         @foreach ($produtos as $post)
                             <div class="item">
                                 <div class="col1">
-                                    <p>{{ $post->title }}</p>
+                                    <p>{{ $post->nome }}</p>
                                 </div>
                                 <div class="col2">
-                                    <p>{{ date('d-m-Y', strtotime($post->date)) }}</p>
+                                    <p>{{ $post->ativo }}</p>
                                 </div>
                                 <div class="col3">
+                                    <a href="{{ $post->image }}" target="_blanck">
+                                        <img src="../{{ $post->image }}" width="50">
+                                    </a>
+                                </div>
+                                <div class="col4">
                                     <div class="actions">
                                         <a class="btn btn_custom" data-toggle="collapse"
                                             href="#collapse_id_{{ $post->id }}" role="button" aria-expanded="false"
                                             aria-controls="collapse_id_{{ $post->id }}"><i
                                                 class="fas fa-edit"></i></a>
                                         <form action="{{ route('admin_produtos_delete') }}" method="POST"
-                                            onsubmit="return confirm('Tem certeza que deseja remover esta postagem?')">
+                                            onsubmit="return confirm('Tem certeza que deseja remover este produto?')">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $post->id }}">
                                             <button type="submit" class="btn btn-danger"><i
@@ -289,7 +302,7 @@
             </div>
         </div>
     </div>
-
+    @component('components.popup_automatico')@endcomponent
     <script>
         tinymce.init({
             selector: '#txt',

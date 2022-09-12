@@ -15,19 +15,21 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('nome')->nullable();
-            $table->string('descricao')->nullable();
-            $table->string('modo')->nullable();
-            $table->string('medidas')->nullable();
+            $table->longText('descricao')->nullable();
+            $table->longText('modo')->nullable();
+            $table->longText('medidas')->nullable();
             $table->string('lote')->nullable();
             $table->string('serie')->nullable();
+            $table->string('preco')->nullable();
             $table->string('estoque')->nullable();
             $table->string('ativo')->nullable();
             $table->string('cores')->nullable();
-            $table->string('observacao')->nullable();
+            $table->longText('observacao')->nullable();
             $table->string('image')->nullable();
-            $table->string('principal')->nullable(); //-> default 0 = não ;
+            $table->string('principal')->nullable()->default(0)->comment("0- não 1 - Sim");
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

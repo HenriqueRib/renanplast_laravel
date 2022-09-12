@@ -15,7 +15,10 @@ class CreateFotoProdutosTable extends Migration
     {
         Schema::create('foto_produtos', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_produto')->nullable();
+            $table->string('imagem_produto')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
