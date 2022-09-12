@@ -18,4 +18,9 @@ class FotoProduto extends Model
     protected $dates = [
         'deleted_at'
     ];
+
+    public function produto()
+    {
+        return $this->hasOne(Produto::class, 'id', 'id_produto');
+    }
 }

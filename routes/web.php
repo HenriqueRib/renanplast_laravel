@@ -44,10 +44,15 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkAdmin'], function () {
         //
         Route::get('/produtos', ['App\Http\Controllers\AdminController', 'produtos'])->name('admin_produtos');
         Route::post('/produtos/new', ['App\Http\Controllers\AdminController', 'produtos_add'])->name('admin_produtos_add');
-        // Route::post('/produtos/new/tinymce_data', ['App\Http\Controllers\AdminController', 'produtos_add_tinymce_data']);
         Route::post('/produtos/search', ['App\Http\Controllers\AdminController', 'produto_search'])->name('admin_produtos_search');
         Route::post('/produtos/edit', ['App\Http\Controllers\AdminController', 'produto_edit'])->name('admin_produtos_edit');
         Route::post('/produtos/delete', ['App\Http\Controllers\AdminController', 'produto_delete'])->name('admin_produtos_delete');
+
+        Route::get('/geleria', ['App\Http\Controllers\FotoProdutoController', 'galeria'])->name('admin_galeria');
+        Route::post('/geleria/new', ['App\Http\Controllers\FotoProdutoController', 'galeria_add'])->name('admin_new_gallery');
+        Route::post('/geleria/add', ['App\Http\Controllers\FotoProdutoController', 'galeria_edit'])->name('admin_galeria_edit');
+        Route::post('/geleria/search', ['App\Http\Controllers\FotoProdutoController', 'gallery_search'])->name('admin_search_gallery');
+        Route::post('/geleria/delete', ['App\Http\Controllers\FotoProdutoController', 'galeria_delete'])->name('admin_galeria_delete');
 
 
         Route::post('/create_user', ['App\Http\Controllers\RegisterController', 'create_user'])->name('admin_add_user');

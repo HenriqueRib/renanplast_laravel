@@ -23,6 +23,7 @@ class Produto extends Model
         'cores',
         'observacao',
         'image',
+        'view',
         'principal',
     ];
 

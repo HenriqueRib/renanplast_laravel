@@ -60,6 +60,10 @@
 #sidebar ul li {
     font-size: 16px;
 }
+#sidebar ul li a {
+    font-size: 16px;
+    text-decoration: none;
+}
 #sidebar ul li > ul {
     margin-left: 10px;
 }
@@ -71,7 +75,6 @@
     display: block;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    text-decoration: none;
 }
 #sidebar ul li a span.notif {
     position: relative;
@@ -104,18 +107,6 @@
     text-decoration: none;
     border-bottom: 1px solid #2f89fc;
 }
-@media (max-width: 991.98px) {
-    #sidebar {
-        margin-left: -300px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #sidebar .custom-menu {
-        margin-right: -60px !important;
-        top: 10px !important;
-    }
-}
 #sidebar .custom-menu {
     display: inline-block;
     position: absolute;
@@ -141,11 +132,16 @@
     width: 50px;
     height: 30px;
     z-index: 99;
+    top: -20px;
+    left: 25px;
 }
 
 .menu {
     color: #fff;
+    margin: 0 15px 0 0;
+    color: #fff;
     display: flex;
+    /* justify-content: start; */
     margin: -4px 0px 0px 0px;
 }
 
@@ -154,15 +150,46 @@
     border-color: transparent;
     position: relative;
     color: #000;
+    width: 85px;
     height: 30px;
     z-index: 99;
+    top: -18px;
+    left: 58px;
 }
 
+/* Sem a palavra Menu
+
+#sidebar .custom-menu .btn.btn-primary {
+    background: #062c33;
+    border-color: transparent;
+    position: relative;
+    color: #000;
+    width: 50px;
+    height: 30px;
+    z-index: 99;
+    top: -20px;
+    left: 25px;
+}
 
 #sidebar .custom-menu .btn.btn-primary:after,
 #sidebar .custom-menu .btn.btn-primary:before {
-    position: relative;
-    left: 50%;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-family: "FontAwesome";
+    color: #fff;
+}
+
+*/
+
+#sidebar .custom-menu .btn.btn-primary:after,
+#sidebar .custom-menu .btn.btn-primary:before {
+    position: absolute;
+    top: 2px;
+    left: 50px;
+    right: -50px;
     bottom: 0;
     font-family: "FontAwesome";
     color: #fff;
@@ -323,194 +350,98 @@ a[data-toggle="collapse"] {
     display: flex;
     justify-content: space-around;
 }
-
-.btn_menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    width: 19vw !important;
-    margin: 5px 0 0px -95px !important;
-    padding: 10px 15px;
-    transition: 1s;
+.btn_action a{
+    margin: 0 1px;
 }
-.btn_menu:hover {
-    color: #7feccd;
+.imagem_center{
+    text-align: center;
+    display: block !important;
 }
-
-.btn_menu_admin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    margin: 5px 0 0px -95px !important;
-    padding: 10px 15px;
-    transition: 1s;
+.imagem_empresa{
+    max-width: 500px;
 }
-.btn_menu_admin:hover {
-    color: #7feccd;
+.menu_function{
+    margin: 10px 0;
 }
-
-.titulo_dados_pessoais {
-    margin-bottom: 2rem;
-}
-
-.titulo_dados_pessoais h2 {
-    padding-left: 1rem;
-    border-bottom-width: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: red;
-    border-radius: 5rem;
-    width: 265px;
-}
-
-.titulo_endereco {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.titulo_endereco h2 {
-    padding-left: 1rem;
-    border-bottom-width: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: red;
-    border-radius: 5rem;
-    width: 163px;
-}
-
-.titulo_escolaridade {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.titulo_escolaridade h2 {
-    padding-left: 1rem;
-    border-bottom-width: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: red;
-    border-radius: 5rem;
-    width: 217px;
-}
-
-.titulo_anexos {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.titulo_anexos h2 {
-    padding-left: 1rem;
-    border-bottom-width: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: red;
-    border-radius: 5rem;
-    width: 135px;
-    margin-bottom: 2rem;
-}
-.titulo_responsavel {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.titulo_responsavel h2 {
-    padding-left: 1rem;
-    border-bottom-width: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: red;
-    border-radius: 5rem;
-    width: 212px;
-    margin-bottom: 2rem;
-}
-
-.titulo_termo {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.titulo_termo h2 {
-    padding-left: 1rem;
-    border-bottom-width: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: red;
-    border-radius: 5rem;
-    width: 122px;
-}
-
-.form_parceiro_add {
-    border: 1px solid red;
-    border-radius: 1rem;
-    padding: 5px 20px;
-    margin: 8px 0;
-}
-.form_nome_add {
-    width: 680px;
-}
-.form_email_add {
-    width: 680px;
-}
-.form_data_nascimento_add {
-    width: 204px;
-}
-
-input[type="date"]::before {
-    color: #999;
-    content: attr(placeholder) ": ";
-}
-input[type="date"]:focus::before {
-    content: "" !important;
-}
-
-.form_rua_add {
-    width: 460px;
-}
-.form_numero_add {
-    width: 125px;
-}
-.form_complemento_add {
-    width: 560px;
-}
-.form_bairro_add {
-    width: 310px;
-}
-.form_cidade_add {
-    width: 310px;
-}
-.form_uf_add {
-    width: 60px;
-}
-.form_faculdade_add {
-    width: 680px;
-}
-.form_ano_formatura_add {
-    width: 200px;
-}
-.form_oab_add {
-    width: 480px;
-}
-
-.btn_enviar {
-    border: 1px solid red;
-    border-radius: 1rem;
-    padding: 8px 20px;
-    margin: 1rem 0;
-}
-
-.associados .dropdown-menu.show {
-    top: -200px !important;
-    left: -10px !important;
-}
-
-@media (max-width: 991px) and (orientation: portrait) {
-    .form_config {
-        flex-direction: column;
-    }
-    .config_div_img {
-        flex-direction: column;
-    }
-    .associados .dropdown-menu.show {
-        top: 0px !important;
-        display: contents;
-    }
-}
-.form-group{
+.menu_function div{
     margin: 15px 0;
+}
+.home_card{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    background-color: rgb(81, 93, 104);
+    padding: 15px 10px;
+    border-radius: 2rem;
+    z-index: 1;
+}
+.cadastrar{
+    background-color: #23539a;
+}
+div .pag_turismo{
+    background-color: #23849a;
+}
+div .pag_guia{
+    background-color: #59239a;
+}
+div .pag_evento_visite{
+    background-color:#703bb5;
+}
+div .pag_informacao{
+    background-color:#3bb586;
+}
+.home_card a{
+    font-size: 19px;
+    padding: 5px;
+}
+.card_menu_admin{
+    background-color: #23539a;
+    color: #fff;
+
+    padding: 0 15px;
+    width: 250px;
+    height: 160px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2rem;
+
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    box-shadow: 2px 5px 15px rgba(50, 50, 50, 0.77);
+}
+.home_menu{
+    display: flex;
+    justify-content: space-evenly;
+}
+.link {
+    color: #fff;
+    text-decoration: none;
+}
+.link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 991.98px) {
+    #sidebar {
+        margin-left: 0;
+        width: 100vw;
+        height: 100%;
+        min-width: 100vw;
+        max-width: 100vh;
+    }
+    #sidebar.active {
+        margin-left: 0;
+        display: block;
+    }
+
+    #sidebar.custom-menu {
+        display: none;
+    }
+    .mobile {
+        display: none;
+    }
 }

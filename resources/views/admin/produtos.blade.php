@@ -10,14 +10,14 @@
             <h3 class="card-header">Produtos <a class="btn btn_custom" data-toggle="collapse" href="#openNewPost" role="button"
                     aria-expanded="false" aria-controls="openNewPost">Adicionar Produtos +</a></h3>
             <div class="collapse" id="openNewPost">
-            {{-- <div> --}}
+                {{-- <div> --}}
                 <div class="card card-body">
                     <form action="{{ route('admin_produtos_add') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="nome">Nome do produto</label>
-                            <input required type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}"
-                                maxlength="120">
+                            <input required type="text" name="nome" id="nome" class="form-control"
+                                value="{{ old('nome') }}" maxlength="120">
                         </div>
                         <div class="form-group">
                             <label for="descricao">Descrição do produto</label>
@@ -26,42 +26,51 @@
                         </div>
                         <div class="form-group">
                             <label for="modo">Modo de uso</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo" value="{{ old('modo') }}"
-                                id="modo">{{ old('modo') }}</textarea>
+                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
+                                value="{{ old('modo') }}" id="modo">{{ old('modo') }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="medidas">Medidas</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas" value="{{ old('medidas') }}"
-                                id="medidas">{{ old('medidas') }}</textarea>
+                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
+                                value="{{ old('medidas') }}" id="medidas">{{ old('medidas') }}</textarea>
                         </div>
                         <div class="form-group item__column" style="display: flex">
                             <div>
                                 <label for="lote">Lote</label>
-                                <input required type="text" name="lote" id="lote" class="form-control" value="{{ old('lote') }}"
-                                    maxlength="80">
+                                <input required type="text" name="lote" id="lote" class="form-control"
+                                    value="{{ old('lote') }}" maxlength="80">
                             </div>
                             <div style="margin:0 2rem">
                                 <label for="serie">Numero de Série</label>
-                                <input required type="text" name="serie" id="serie" class="form-control" value="{{ old('serie') }}"
-                                    maxlength="80">
+                                <input required type="text" name="serie" id="serie" class="form-control"
+                                    value="{{ old('serie') }}" maxlength="80">
                             </div>
                             <div>
                                 <label for="preco">Preço</label>
-                                <input required type="text" name="preco" id="preco" class="form-control" value="{{ old('preco') }}">
+                                <input required type="text" name="preco" id="preco" class="form-control"
+                                    value="{{ old('preco') }}">
                             </div>
                         </div>
                         <div class="form-group item__column" style="display: flex">
-                            <div style="margin:0 0rem">
-                                <label for="estoque">Em Estoque</label>
-                                <select required type="text" name="estoque" id="estoque" class="form-control">
-                                     <option selected disabled> Escolha uma opção</option> 
-                                    <option value="sim">Sim</option>
-                                    <option value="nao">Não</option>
+                            <div>
+                                <label for="principal">Produto Principal</label>
+                                <select required type="text" name="principal" id="principal" class="form-control">
+                                    <option selected disabled> Escolha uma Opção</option>
+                                    <option value="1">Sim</option>
+                                    <option value="0">Não</option>
                                 </select>
                             </div>
                             <div style="margin:0 2rem">
                                 <label for="ativo">Ativo no site</label>
                                 <select required type="text" name="ativo" id="ativo" class="form-control">
+                                    <option selected disabled> Escolha uma Opção</option>
+                                    <option value="sim">Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="estoque">Em Estoque</label>
+                                <select required type="text" name="estoque" id="estoque" class="form-control">
                                     <option selected disabled> Escolha uma Opção</option>
                                     <option value="sim">Sim</option>
                                     <option value="nao">Não</option>
@@ -87,22 +96,23 @@
                             <label for="observacao">Observação</label>
                             <textarea class="form-control"
                                 placeholder="Digite aqui uma observação se desejar. Esta observação nãoi ficará visivel no site" rows="1"
-                                value="{{ old('observacao') }}"
-                                name="observacao" id="observacao" ></textarea>
+                                value="{{ old('observacao') }}" name="observacao" id="observacao"></textarea>
                         </div>
-                        
-                        <div class="form-group item__column" style="display: flex">
-                            <div style="margin:0 2rem 0 0rem">
-                                <label for="image">Imagem principal do produto</label>
-                                <input required class="form-control py-1" type="file" accept="image/*" id="image"
-                                    name="image">
-                            </div>
-                            {{-- <div style="margin:0 ">
-                                <label for="imagem_produto">Mais Imagems do produto</label>
-                                <input required class="form-control py-1" type="file" accept="image/*"
-                                    id="imagem_produto" name="imagem_produto">
-                            </div> --}}
+
+                        <div class="form-group">
+                            <label for="image">Imagem principal do produto</label>
+                            <input required class="form-control py-1" type="file" accept="image/*" id="image"
+                                name="image">
                         </div>
+
+                        <div class="form-group">
+                            <label for="imagem_produto">Adicionar mais Fotos do Produto</label>
+                            <h6> <b>Obs:</b> Aqui voce pode escolher mais de uma foto e Gerenciala na aba Fotos Produtos
+                            </h6>
+                            <input multiple class="form-control py-1" type="file" accept="image/*"
+                                id="imagem_produto" name="imagem_produto[]">
+                        </div>
+
                         <div class="form-group">
                             <button type="submit" class="btn btn_custom">Salvar Produto</button>
                             <button type="reset" class="btn btn_custom2">Limpar Dados</button>
@@ -114,7 +124,7 @@
             </div>
             <div class="content__table">
 
-                <div class="card-body items-post-admin">
+                <div class="card-body items-produto-admin">
                     <div class="header">
                         <div class="col1">
                             <h5>Nome</h5>
@@ -130,25 +140,28 @@
                         </div>
                     </div>
                     <div class="search">
-                        <form action="{{ route('admin_produtos_search') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin_produtos_search') }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="col1 form-input">
                                 <small id="label1" class="form-text text-muted pl-1">
                                     Procurar pelo título da Notícia
                                 </small>
                                 <input type="text" name="title" id="title" class="form-control" maxlength="80"
-                                    placeholder="Digite algo sobre o título para filtrar" aria-describedby="label1"
+                                    placeholder="Digite o nome do produto" aria-describedby="label1"
                                     @if (isset($paramstitle)) value="{{ $paramstitle }}" @endif>
                             </div>
                             <div class="col2 form-input">
                                 <small id="label2" class="form-text text-muted pl-1">
-                                    Procurar pela data
+                                    Procurar por ativo
                                 </small>
-                                <input type="date" name="date" id="date" class="form-control"
+                                <input type="text" name="ativo" id="ativo" class="form-control"
                                     aria-describedby="label2"
-                                    @if (isset($paramsdate)) value="{{ $paramsdate }}" @endif>
+                                    @if (isset($paramsativo)) value="{{ $paramsativo }}" @endif>
                             </div>
-                            <div class="col3 actions">
+                            <div class="col3">
+                            </div>
+                            <div class="col4 actions">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                             </div>
                         </form>
@@ -171,11 +184,16 @@
                                 </div>
                                 <div class="col3">
                                     <a href="{{ $post->image }}" target="_blanck">
-                                        <img src="../{{ $post->image }}" width="50">
+                                        <img src="{{ $post->image }}" width="50">
                                     </a>
                                 </div>
                                 <div class="col4">
                                     <div class="actions">
+                                        <a class="btn btn_custom" data-toggle="collapse"
+                                            href="#collapse_foto_id_{{ $post->id }}" role="button"
+                                            aria-expanded="false" aria-controls="collapse_foto_id_{{ $post->id }}">
+                                            <i class="fas fa-photo"></i>
+                                        </a>
                                         <a class="btn btn_custom" data-toggle="collapse"
                                             href="#collapse_id_{{ $post->id }}" role="button" aria-expanded="false"
                                             aria-controls="collapse_id_{{ $post->id }}"><i
@@ -190,45 +208,146 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="collapse" id="collapse_id_{{ $post->id }}">
                                 <div class="card card-body">
                                     <form action="{{ route('admin_produtos_edit') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $post->id }}">
-                                        <div class="form-group">
+                                        <input type="hidden" name="principal" value="{{ $post->principal }}">
+                                        <input type="hidden" name="estoque" value="{{ $post->estoque }}">
+                                        <input type="hidden" name="ativo" value="{{ $post->ativo }}">
+                                        {{-- <div class="form-group">
                                             <label for="title">Titulo do Post</label>
                                             <input required type="text" name="title" id="title"
                                                 class="form-control" maxlength="80" value="{{ $post->title }}">
+                                        </div> --}}
+                                        <div class="form-group">
+                                            <label for="nome">Nome do produto</label>
+                                            <input required type="text" name="nome" id="nome"
+                                                class="form-control" value="{{ $post->nome }}" maxlength="120">
                                         </div>
                                         <div class="form-group">
-                                            <label for="description">Descrição Resumida</label>
-                                            <input required type="text" name="description" id="description"
-                                                class="form-control" maxlength="150" value="{{ $post->description }}">
+                                            <label for="descricao">Descrição do produto</label>
+                                            <textarea required="" class="form-control" placeholder="Digite aqui a descrição do produto" rows="2"
+                                                name="descricao" id="descricao" value="{{ $post->descricao }}">{{ $post->descricao }}</textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="date">Data do Post</label>
-                                            <input required type="date" name="date" id="date"
-                                                class="form-control" value="{{ $post->date }}">
+                                            <label for="modo">Modo de uso</label>
+                                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
+                                                value="{{ $post->modo }}" id="modo">{{ $post->modo }}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="medidas">Medidas</label>
+                                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
+                                                value="{{ $post->medidas }}" id="medidas">{{ $post->medidas }}</textarea>
+                                        </div>
+                                        <div class="form-group item__column" style="display: flex">
+                                            <div>
+                                                <label for="lote">Lote</label>
+                                                <input required type="text" name="lote" id="lote"
+                                                    class="form-control" value="{{ $post->lote }}" maxlength="80">
+                                            </div>
+                                            <div style="margin:0 2rem">
+                                                <label for="serie">Numero de Série</label>
+                                                <input required type="text" name="serie" id="serie"
+                                                    class="form-control" value="{{ $post->serie }}" maxlength="80">
+                                            </div>
+                                            <div>
+                                                <label for="preco">Preço</label>
+                                                <input required type="text" name="preco" id="preco"
+                                                    class="form-control" value="{{ $post->preco }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group item__column" style="display: flex">
+                                            <div>
+                                                <label for="principal">Produto Principal</label>
+                                                <select required type="text" name="principal" id="principal"
+                                                    class="form-control">
+                                                    <option selected disabled> {{ $post->principal == 1 ? 'Sim' : 'Não' }}
+                                                    </option>
+                                                    <option value="1">Sim</option>
+                                                    <option value="0">Não</option>
+                                                </select>
+                                            </div>
+                                            <div style="margin:0 2rem">
+                                                <label for="ativo">Ativo no site</label>
+                                                <select required type="text" name="ativo" id="ativo"
+                                                    class="form-control">
+                                                    <option selected> {{ $post->ativo == 'sim' ? 'Sim' : 'Não' }}
+                                                    </option>
+                                                    <option value="Sim">Sim</option>
+                                                    <option value="Não">Não</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label for="estoque">Em Estoque</label>
+                                                <select required type="text" name="estoque" id="estoque"
+                                                    class="form-control">
+                                                    <option selected>
+                                                        {{ $post->estoque == 'sim' ? 'Sim' : 'Não' }}
+                                                    </option>
+                                                    <option value="Sim">Sim</option>
+                                                    <option value="Não">Não</option>
+                                                </select>
+                                            </div>
+                                            <div style="margin:0 2rem">
+                                                <div>
+                                                    <label for="cores">
+                                                        Selecione um ou mais Cores: {{ $post->cores[0] }}
+                                                    </label>
+                                                </div>
+                                                <select class="select2 form-control" name="cores[]" multiple=""
+                                                    tabindex="-1" style="display: none; width: 250px;">
+                                                    <optgroup label="Selecionado anteriormente">
+                                                        @foreach ($post->cores as $cores)
+                                                            <option selected value="{{ $cores }}">
+                                                                {{ $cores }}</option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                    <optgroup label="Outras Categorias">
+                                                        <option value="Azul">Azul</option>
+                                                        <option value="Rosa">Rosa</option>
+                                                        <option value="Branco">Branco</option>
+                                                        <option value="Dorado">Dorado</option>
+                                                        <option value="Sem cor">Sem cor</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="observacao">Observação</label>
+                                            <textarea class="form-control"
+                                                placeholder="Digite aqui uma observação se desejar. Esta observação nãoi ficará visivel no site" rows="1"
+                                                value="{{ $post->observacao }}" name="observacao" id="observacao"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="image">
                                                 @if ($post->image)
-                                                    Imagem de Capa Definida. Caso queira alterar, selecione outra foto.
+                                                    <img src="{{ $post->image }}" width="250px">
+                                                    Imagem principal do Produto Definida. Caso queira alterar, selecione
+                                                    outra
+                                                    foto.
                                                 @else
-                                                    Imagem de Capa
+                                                    Imagem principal do Produto
                                                 @endif
                                             </label>
                                             <input class="form-control py-1" type="file" accept="image/*"
                                                 id="image" name="image">
                                         </div>
+                                        <br>
                                         <div class="form-group">
-                                            <label for="txt">Conteúdo do Post</label>
-                                            <textarea class="form-control" name="txt" id="txt_post_id_{{ $post->id }}" class="txt">{{ $post->txt }}</textarea>
+                                            <label for="imagem_produto">Adicionar mais fotos para o produto</label>
+                                            <h6> <b>Obs:</b> Aqui voce pode escolher mais de uma foto e Gerenciala na aba
+                                                Fotos dos Produtos
+                                            </h6>
+                                            <input multiple class="form-control py-1" type="file" accept="image/*"
+                                                id="imagem_produto" name="imagem_produto[]">
                                         </div>
+
                                         <div class="form-group">
                                             <button type="submit" class="btn btn_custom">Salvar Post</button>
-                                            <button type="reset" class="btn btn_custom2">Limpar Dados</button>
                                             <a class="btn btn-danger" data-toggle="collapse"
                                                 href="#collapse_id_{{ $post->id }}" role="button"
                                                 aria-expanded="false"
@@ -302,7 +421,8 @@
             </div>
         </div>
     </div>
-    @component('components.popup_automatico')@endcomponent
+    @component('components.popup_automatico')
+    @endcomponent
     <script>
         tinymce.init({
             selector: '#txt',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\FotoProduto;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -25,7 +26,12 @@ class AdminController extends Controller
     public function produtos()
     {
         // return view('admin.posts', compact('posts'));
-        $produtos = Produto::orderBy('id', 'desc')->get();
+        $produtos = Produto::orderBy('id', 'desc')->with(['foto_produto'])->get();
+
+        foreach ($produtos as $p) {
+            $p->cores = explode(", ", $p->cores);
+        }
+
         // $produtos = [];
         return view('admin.produtos', compact('produtos'));
     }
@@ -37,6 +43,9 @@ class AdminController extends Controller
             if (!isset($params['cores'])) {
                 $request->session()->flash('error', 'Campo Cores é obrigatório');
                 $params['cores'] = ["Sem cor"];
+            }
+            if (!isset($params['c'])) {
+                $params['principal'] = 0; //Não
             }
             if (!isset($params['estoque'])) {
                 $request->session()->flash('error', 'Campo Estoque é obrigatório');
@@ -56,6 +65,29 @@ class AdminController extends Controller
             $produto->image = $path;
             $produto->save();
             $request->session()->flash('status', 'Seu produto foi cadastrado com sucesso.');
+
+            try {
+
+                if ($request->hasFile('imagem_produto')) {
+                    foreach ($request->file('imagem_produto') as $f) {
+                        $foto_produto = new FotoProduto();
+                        $file = $f;
+                        $nameFile = rand(0, 1000) . $file->getClientOriginalName();
+                        $path = "/uploads/produtos/" . $produto->id . "/" . $nameFile;
+                        $file->move(public_path("/uploads/produtos/" . $produto->id . "/"), $nameFile);
+
+                        $foto_produto->imagem_produto = $path;
+                        $foto_produto->id_produto = $produto->id;
+                        $foto_produto->save();
+                    }
+                }
+                $request->session()->flash('status', 'As fotos do produto foi cadastrado com sucesso.');
+            } catch (Exception $e) {
+                $request->session()->flash('error', 'O correu um erro ao salvar as imagens do produtos. Tente adicionar na aba de Fotos de produtos.');
+                return redirect()->route('admin_produtos');
+            }
+
+            $request->session()->flash('status', 'Seu produto foi cadastrado com sucesso.');
             return redirect()->route('admin_produtos');
         } catch (Exception $e) {
             // dd($e);
@@ -70,44 +102,92 @@ class AdminController extends Controller
         }
     }
 
-    // public function posts_add_tinymce_data(Request $request)
-    // {
-    //     $file = $request->file('file');
-    //     $nameFile = rand(0, 1000) . $file->getClientOriginalName();
-    //     $path = url("/uploads/") . '/' . $nameFile;
-    //     $imgpath = $file->move(public_path("/uploads/"), $nameFile);
-    //     $fileNameToStore = $path;
-
-    //     return json_encode(['location' => $fileNameToStore]);
-    // }
-
     public function produto_edit(Request $request)
     {
-        // $post_id = $request->id;
-        // $post = Post::find($post_id);
-        // // dd($post);
+        $params  = $request->all();
 
-        // if (isset($request->image)) {
-        //     $image = $post->image;
+        if (!isset($params['cores'])) {
+            $request->session()->flash('error', 'Campo Cores é obrigatório');
+            $params['cores'] = ["Sem cor"];
+        }
+        if (!isset($params['principal'])) {
+            $params['principal'] = 0; //Não
+        }
+        if (!isset($params['estoque'])) {
+            $request->session()->flash('error', 'Campo Estoque é obrigatório');
+            return redirect()->back()->withInput();
+        }
+        if (!isset($params['ativo'])) {
+            $request->session()->flash('error', 'Campo Ativo é obrigatório');
+            return redirect()->back()->withInput();
+        }
 
-        //     if (file_exists('.' . $image)) {
-        //         unlink('.' . $image);
-        //     }
+        try {
+            $produto = Produto::find($request->id);
+            // dd($produto);
 
-        //     $file = $request->file('image');
-        //     $nameFile = rand(0, 1000) . $file->getClientOriginalName();
-        //     $path = '/uploads/' . $nameFile;
-        //     $file->move(public_path("/uploads/"), $nameFile);
-        //     $post->image = $path;
-        // }
+            if (isset($request->image)) {
+                $image = $produto->image;
+                if (file_exists('.' . $image)) {
+                    unlink('.' . $image);
+                }
+                $file = $request->file('image');
+                $nameFile = rand(0, 1000) . $file->getClientOriginalName();
 
-        // $post->title = $request->title;
-        // $post->description = $request->description;
-        // $post->date = $request->date;
-        // $post->txt = $request->txt;
+                $path = "/uploads/produtos/" . $produto->id . "/" . $nameFile;
+                $file->move(public_path("/uploads/produtos/" . $produto->id . "/"), $nameFile);
+                $produto->image = $path;
+            }
 
-        // $post->save();
-        // return redirect()->route('admin_posts');
+            $produto->cores = implode(", ", $params['cores']);
+            $produto->nome = $request->nome;
+            $produto->descricao = $request->descricao;
+            $produto->modo = $request->modo;
+            $produto->medidas = $request->medidas;
+            $produto->lote = $request->lote;
+            $produto->serie = $request->serie;
+            $produto->preco = $request->preco;
+            $produto->estoque = $request->estoque;
+            $produto->ativo = $request->ativo;
+            $produto->cores = $request->cores;
+            $produto->observacao = $request->observacao;
+            $produto->principal = $request->principal;
+            $produto->save();
+
+            try {
+                if ($request->hasFile('imagem_produto')) {
+                    foreach ($request->file('imagem_produto') as $f) {
+                        $foto_produto = new FotoProduto();
+                        $file = $f;
+                        $nameFile = rand(0, 1000) . $file->getClientOriginalName();
+                        $path = "/uploads/produtos/" . $produto->id . "/" . $nameFile;
+                        $file->move(public_path("/uploads/produtos/" . $produto->id . "/"), $nameFile);
+
+                        $foto_produto->imagem_produto = $path;
+                        $foto_produto->id_produto = $produto->id;
+                        $foto_produto->save();
+                    }
+                }
+                // $request->session()->flash('status', 'As fotos do produto foi cadastrado com sucesso.');
+            } catch (Exception $e) {
+                $request->session()->flash('error', 'O correu um erro ao salvar as imagens do produtos. Tente adicionar na aba de Fotos de produtos.');
+                return redirect()->route('admin_produtos');
+            }
+
+
+            $request->session()->flash('status', 'Seu produto foi editado com sucesso.');
+            return redirect()->route('admin_produtos');
+        } catch (Exception $e) {
+            // dd($e);
+            $request->session()->flash('error', 'O correu um erro. Tente novamente mais tarde.');
+            Log::debug("Erro ao editar produto", [
+                'request' => $request->all(),
+                'arquivo' => $e->getFile(),
+                'linha' => $e->getLine(),
+                'erro' => $e->getMessage(),
+            ]);
+            return redirect()->back();
+        }
     }
 
     public function produto_search(Request $request)

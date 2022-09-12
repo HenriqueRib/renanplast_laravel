@@ -20,7 +20,9 @@
             <li class="@if (Route::currentRouteName() == 'admin_configuracao') active @endif">
                 <a href="{{ route('admin_produtos') }}"><span class="fas fa-syringe mr-3"></span> Produtos</a>
             </li>
-            <li class="@if (Route::currentRouteName() == 'admin_administradores') active @endif">
+            <li class="@if (Route::currentRouteName() == 'admin_galeria') active @endif">
+                <a href="{{ route('admin_galeria') }}"><span class="fa fa-photo mr-3"></span> Fotos dos Produtos</a>
+                </os Produtos <li class="@if (Route::currentRouteName() == 'admin_administradores') active @endif">
                 <a href="{{ route('admin_administradores') }}"><span class="fas fa-user-shield mr-3"></span>
                     Usuários</a>
             </li>

@@ -27,7 +27,8 @@ class CreateProdutosTable extends Migration
             $table->string('cores')->nullable();
             $table->longText('observacao')->nullable();
             $table->string('image')->nullable();
-            $table->string('principal')->nullable()->default(0)->comment("0- não 1 - Sim");
+            $table->integer('view')->nullable()->default(0);
+            $table->integer('principal')->nullable()->default(0)->comment("0-Não,1-Sim");
             $table->timestamps();
             $table->softDeletes();
         });

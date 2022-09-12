@@ -37,6 +37,7 @@
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/admin_menu.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/admin_lite_menu.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/admin_lite_menu2.css') }}" rel="stylesheet"> --}}
 
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css"
