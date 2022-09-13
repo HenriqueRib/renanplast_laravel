@@ -7,8 +7,25 @@
         @component('components.admin.nav')
         @endcomponent
         <div class="content card">
-            <h3 class="card-header">Produtos <a class="btn btn_custom" data-toggle="collapse" href="#openNewPost" role="button"
-                    aria-expanded="false" aria-controls="openNewPost">Adicionar Produtos +</a></h3>
+            <h3 class="card-header">
+                {{ $pagina }} -
+
+                @if ($pagina == 'Produtos Principais')
+                    <a class="btn btn_custom2" href="/admin/produtos">
+                        {{ $pagina_filtro }}
+                    </a>
+                @else
+                    <a class="btn btn_custom2" href="/admin/produtos_principais">
+                        {{ $pagina_filtro }}
+                    </a>
+                @endif
+
+                -
+                <a class="btn btn_custom" data-toggle="collapse" href="#openNewPost" role="button" aria-expanded="false"
+                    aria-controls="openNewPost">
+                    Adicionar Produtos +
+                </a>
+            </h3>
             <div class="collapse" id="openNewPost">
                 {{-- <div> --}}
                 <div class="card card-body">
@@ -147,9 +164,9 @@
                                 <small id="label1" class="form-text text-muted pl-1">
                                     Procurar pelo título da Notícia
                                 </small>
-                                <input type="text" name="title" id="title" class="form-control" maxlength="80"
+                                <input type="text" name="nome" id="nome" class="form-control" maxlength="80"
                                     placeholder="Digite o nome do produto" aria-describedby="label1"
-                                    @if (isset($paramstitle)) value="{{ $paramstitle }}" @endif>
+                                    @if (isset($paramsnome)) value="{{ $paramsnome }}" @endif>
                             </div>
                             <div class="col2 form-input">
                                 <small id="label2" class="form-text text-muted pl-1">
@@ -185,10 +202,11 @@
                         @foreach ($produtos as $post)
                             <div class="item">
                                 <div class="col1 visualizacao_produto">
-                                    <p>{{ $post->nome }}</p> <p>Visualização-{{ $post->view}}</p>
+                                    <p>{{ $post->nome }}</p>
+                                    <p>Visualização-{{ $post->view }}</p>
                                 </div>
                                 <div class="col2">
-                                    <p>{{ $post->principal == 0 ? "Não" : "Sim" }}</p>
+                                    <p>{{ $post->principal == 0 ? 'Não' : 'Sim' }}</p>
                                 </div>
                                 <div class="col3">
                                     <p>{{ $post->ativo }}</p>
@@ -221,7 +239,7 @@
                             </div>
                             <div class="collapse" id="collapse_foto_id_{{ $post->id }}">
                                 {{-- {{ $post->fotos }} --}}
-    
+
                                 <div class="content">
                                     @if (count($post->foto_produto) == 0)
                                         <div class="item">
@@ -229,25 +247,27 @@
                                                 cadastradas.</h3>
                                         </div>
                                     @endif
-    
+
                                     @foreach ($post->foto_produto as $foto)
                                         <div class="item">
                                             <div class="col1 imagem_center">
                                                 <a href="{{ $foto->imagem_produto }}" target="_blank">
-                                                    <img class="imagem_empresa" src="{{ $foto->imagem_produto }}" alt="Foto">
+                                                    <img class="imagem_empresa" src="{{ $foto->imagem_produto }}"
+                                                        alt="Foto">
                                                 </a>
                                             </div>
                                             <div class="col3" style="width: 130px">
                                                 <div class="actions">
                                                     <a class="btn btn-warning" data-toggle="collapse"
-                                                        href="#collapse_id_foto_individual{{ $foto->id }}" role="button"
-                                                        aria-expanded="false"
+                                                        href="#collapse_id_foto_individual{{ $foto->id }}"
+                                                        role="button" aria-expanded="false"
                                                         aria-controls="collapse_id_foto_individual{{ $foto->id }}"><i
                                                             class="fas fa-edit"></i></a>
                                                     <form action="{{ route('admin_galeria_delete') }}" method="POST"
                                                         onsubmit="return confirm('Tem certeza que deseja remover esta Foto?')">
                                                         @csrf
-                                                        <input type="hidden" name="id" value="{{ $foto->id }}">
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $foto->id }}">
                                                         <button type="submit" class="btn btn-danger"><i
                                                                 class="fas fa-trash"></i></button>
                                                     </form>
@@ -266,7 +286,7 @@
                                                                 Imagem Definida. Caso queira
                                                                 alterar, selecione outra foto.
                                                             @else
-                                                               Adicionar Imagem do produto
+                                                                Adicionar Imagem do produto
                                                             @endif
                                                         </label>
                                                         <input class="form-control py-1" type="file" accept="image/*"
@@ -275,8 +295,8 @@
                                                     <div class="form-group">
                                                         <button type="submit" class="btn btn-success">Salvar</button>
                                                         <a class="btn btn-danger" data-toggle="collapse"
-                                                            href="#collapse_id_foto_individual{{ $foto->id }}" role="button"
-                                                            aria-expanded="false"
+                                                            href="#collapse_id_foto_individual{{ $foto->id }}"
+                                                            role="button" aria-expanded="false"
                                                             aria-controls="collapse_id_foto_individual{{ $foto->id }}">Cancelar</a>
                                                     </div>
                                                 </form>

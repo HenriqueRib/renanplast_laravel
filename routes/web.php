@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'checkAdmin'], function () {
         Route::post('/admin/user/search', ['App\Http\Controllers\AdminController', 'user_search'])->name('admin_user_search');
 
         //
+        Route::get('/produtos_principais', ['App\Http\Controllers\AdminController', 'produtos_principais'])->name('admin_produtos_principais');
         Route::get('/produtos', ['App\Http\Controllers\AdminController', 'produtos'])->name('admin_produtos');
         Route::post('/produtos/new', ['App\Http\Controllers\AdminController', 'produtos_add'])->name('admin_produtos_add');
         Route::post('/produtos/search', ['App\Http\Controllers\AdminController', 'produto_search'])->name('admin_produtos_search');

@@ -23,17 +23,32 @@ class AdminController extends Controller
     }
 
     // Produto
+    public function produtos_principais()
+    {
+        $produtos = Produto::orderBy('id', 'desc')->where('principal', '=', '1')->with(['foto_produto'])->get();
+
+        foreach ($produtos as $p) {
+            $p->cores = explode(", ", $p->cores);
+        }
+
+        $pagina =  "Produtos Principais";
+        $pagina_filtro = "Filtro Todos Produtos";
+
+        return view('admin.produtos', compact('produtos', 'pagina', 'pagina_filtro'));
+    }
+
     public function produtos()
     {
-        // return view('admin.posts', compact('posts'));
         $produtos = Produto::orderBy('id', 'desc')->with(['foto_produto'])->get();
 
         foreach ($produtos as $p) {
             $p->cores = explode(", ", $p->cores);
         }
 
-        // $produtos = [];
-        return view('admin.produtos', compact('produtos'));
+        $pagina =  "Todos Produtos";
+        $pagina_filtro = "Filtro Produtos Principais";
+
+        return view('admin.produtos', compact('produtos', 'pagina', 'pagina_filtro'));
     }
 
     public function produtos_add(Request $request)
@@ -44,7 +59,7 @@ class AdminController extends Controller
                 $request->session()->flash('error', 'Campo Cores é obrigatório');
                 $params['cores'] = ["Sem cor"];
             }
-            if (!isset($params['c'])) {
+            if (!isset($params['principal'])) {
                 $params['principal'] = 0; //Não
             }
             if (!isset($params['estoque'])) {
@@ -193,20 +208,41 @@ class AdminController extends Controller
 
     public function produto_search(Request $request)
     {
-        // $query = Post::select('title', 'date', 'description', 'image', 'txt', 'id')->orderBy('id', 'desc');
 
-        // if ($request['title'] != null) {
-        //     $query->where('title', 'like', '%' . $request['title']);
-        // }
-        // if ($request['date'] != null) {
-        //     $query->whereDate('date', '=', $request['date']);
-        // }
+        $pagina =  "Todos Produtos";
+        $pagina_filtro = "Filtro Produtos Principais";
 
-        // return view('admin.posts', [
-        //     'posts' => $query->get(),
-        //     'paramstitle' => $request['title'],
-        //     'paramsdate' => $request['date'],
-        // ]);
+        try {
+
+            $query = Produto::select('*')->orderBy('id', 'desc');
+            if ($request['nome'] != null) {
+                $query->where('nome', 'like', '%' . $request['nome'] . '%');
+            }
+
+            $posts = $query->paginate(9);
+            foreach ($posts as $p) {
+                $p->cores = explode(", ", $p->cores);
+            }
+
+            return view('admin.produtos', [
+                'produtos' => $posts,
+                'paramsnome' => $request['nome'],
+                'paramsprincipal' => $request['principal'],
+                'paramsativo' => $request['ativo'],
+                'pagina' =>  $pagina,
+                'pagina_filtro' => $pagina_filtro,
+            ]);
+        } catch (Exception $e) {
+            // dd($e);
+            $request->session()->flash('error', 'O correu um erro. Tente novamente mais tarde.');
+            Log::debug("Erro ao pesquisar produto", [
+                'request' => $request->all(),
+                'arquivo' => $e->getFile(),
+                'linha' => $e->getLine(),
+                'erro' => $e->getMessage(),
+            ]);
+            return redirect()->back();
+        }
     }
 
     public function produto_delete(Request $request)
@@ -217,6 +253,16 @@ class AdminController extends Controller
             if (isset($image)) {
                 if (file_exists('.' . $image)) {
                     unlink('.' . $image);
+                }
+            }
+            $foto = FotoProduto::orderBy('id', 'desc')->where('id_produto', $produto->id)->get();
+            if ($foto->count() > 0) {
+                foreach ($foto as $f) {
+                    $foto_apagar = FotoProduto::find($f->id);
+                    if (file_exists('.' . $foto_apagar->imagem_produto)) {
+                        unlink('.' . $foto_apagar->imagem_produto);
+                    }
+                    $foto_apagar->delete();
                 }
             }
             $produto->delete();
