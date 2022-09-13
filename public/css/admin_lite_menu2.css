@@ -353,6 +353,9 @@ a[data-toggle="collapse"] {
 .btn_action a{
     margin: 0 1px;
 }
+.img_teste{
+    width: 100px;
+}
 .imagem_center{
     text-align: center;
     display: block !important;

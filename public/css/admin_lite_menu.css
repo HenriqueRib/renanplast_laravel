@@ -514,3 +514,97 @@ input[type="date"]:focus::before {
 .form-group{
     margin: 15px 0;
 }
+
+.img_teste{
+    width: 100px;
+}
+.imagem_center{
+    text-align: center;
+    display: block !important;
+}
+.imagem_empresa{
+    max-width: 500px;
+}
+
+.btn_action a{
+    margin: 0 1px;
+}
+.img_teste{
+    width: 100px;
+}
+.imagem_center{
+    text-align: center;
+    display: block !important;
+}
+.imagem_empresa{
+    max-width: 200px;
+}
+.menu_function{
+    margin: 10px 0;
+}
+.menu_function div{
+    margin: 15px 0;
+}
+.home_card{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    background-color: rgb(81, 93, 104);
+    padding: 15px 10px;
+    border-radius: 2rem;
+    z-index: 1;
+}
+.cadastrar{
+    background-color: #23539a;
+}
+div .pag_turismo{
+    background-color: #23849a;
+}
+div .pag_guia{
+    background-color: #59239a;
+}
+div .pag_evento_visite{
+    background-color:#703bb5;
+}
+div .pag_informacao{
+    background-color:#3bb586;
+}
+.home_card a{
+    font-size: 19px;
+    padding: 5px;
+}
+.card_menu_admin{
+    background-color: #23539a;
+    color: #fff;
+
+    padding: 0 15px;
+    width: 250px;
+    height: 160px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2rem;
+
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    box-shadow: 2px 5px 15px rgba(50, 50, 50, 0.77);
+}
+.home_menu{
+    display: flex;
+    justify-content: space-evenly;
+}
+.link {
+    color: #fff;
+    text-decoration: none;
+}
+.link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.visualizacao_produto{
+    display: flex;
+    justify-content: space-between;
+}

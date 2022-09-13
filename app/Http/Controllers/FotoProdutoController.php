@@ -85,8 +85,8 @@ class FotoProdutoController extends Controller
         try {
             $foto = FotoProduto::find($request->id);
 
-            if (file_exists('.' . $foto->url)) {
-                unlink('.' . $foto->url);
+            if (file_exists('.' . $foto->imagem_produto)) {
+                unlink('.' . $foto->imagem_produto);
             }
 
             $foto->delete();

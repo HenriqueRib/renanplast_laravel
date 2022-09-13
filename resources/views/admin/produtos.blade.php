@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label for="nome">Nome do produto</label>
                             <input required type="text" name="nome" id="nome" class="form-control"
-                                value="{{ old('nome') }}" maxlength="120">
+                                value="{{ old('nome') }}" maxlength="120" placeholder="Digite aqui o nome do produto">
                         </div>
                         <div class="form-group">
                             <label for="descricao">Descrição do produto</label>
@@ -64,16 +64,16 @@
                                 <label for="ativo">Ativo no site</label>
                                 <select required type="text" name="ativo" id="ativo" class="form-control">
                                     <option selected disabled> Escolha uma Opção</option>
-                                    <option value="sim">Sim</option>
-                                    <option value="nao">Não</option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="estoque">Em Estoque</label>
                                 <select required type="text" name="estoque" id="estoque" class="form-control">
                                     <option selected disabled> Escolha uma Opção</option>
-                                    <option value="sim">Sim</option>
-                                    <option value="nao">Não</option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
                                 </select>
                             </div>
                             <div style="margin:0 2rem">
@@ -98,13 +98,11 @@
                                 placeholder="Digite aqui uma observação se desejar. Esta observação nãoi ficará visivel no site" rows="1"
                                 value="{{ old('observacao') }}" name="observacao" id="observacao"></textarea>
                         </div>
-
                         <div class="form-group">
                             <label for="image">Imagem principal do produto</label>
                             <input required class="form-control py-1" type="file" accept="image/*" id="image"
                                 name="image">
                         </div>
-
                         <div class="form-group">
                             <label for="imagem_produto">Adicionar mais Fotos do Produto</label>
                             <h6> <b>Obs:</b> Aqui voce pode escolher mais de uma foto e Gerenciala na aba Fotos Produtos
@@ -112,7 +110,6 @@
                             <input multiple class="form-control py-1" type="file" accept="image/*"
                                 id="imagem_produto" name="imagem_produto[]">
                         </div>
-
                         <div class="form-group">
                             <button type="submit" class="btn btn_custom">Salvar Produto</button>
                             <button type="reset" class="btn btn_custom2">Limpar Dados</button>
@@ -130,12 +127,15 @@
                             <h5>Nome</h5>
                         </div>
                         <div class="col2">
-                            <h5>Ativo</h5>
+                            <h5>Principal</h5>
                         </div>
                         <div class="col3">
-                            <h5>Foto principal</h5>
+                            <h5>Ativo</h5>
                         </div>
                         <div class="col4">
+                            <h5>Foto principal</h5>
+                        </div>
+                        <div class="col5">
                             <h5>Ações</h5>
                         </div>
                     </div>
@@ -153,15 +153,23 @@
                             </div>
                             <div class="col2 form-input">
                                 <small id="label2" class="form-text text-muted pl-1">
+                                    Procurar por principal
+                                </small>
+                                <input type="text" name="principal" id="principal" class="form-control"
+                                    aria-describedby="label2"
+                                    @if (isset($paramsprincipal)) value="{{ $paramsprincipal }}" @endif>
+                            </div>
+                            <div class="col3">
+                                <small id="label2" class="form-text text-muted pl-1">
                                     Procurar por ativo
                                 </small>
                                 <input type="text" name="ativo" id="ativo" class="form-control"
                                     aria-describedby="label2"
                                     @if (isset($paramsativo)) value="{{ $paramsativo }}" @endif>
                             </div>
-                            <div class="col3">
+                            <div class="col4">
                             </div>
-                            <div class="col4 actions">
+                            <div class="col5 actions">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                             </div>
                         </form>
@@ -176,18 +184,21 @@
 
                         @foreach ($produtos as $post)
                             <div class="item">
-                                <div class="col1">
-                                    <p>{{ $post->nome }}</p>
+                                <div class="col1 visualizacao_produto">
+                                    <p>{{ $post->nome }}</p> <p>Visualização-{{ $post->view}}</p>
                                 </div>
                                 <div class="col2">
-                                    <p>{{ $post->ativo }}</p>
+                                    <p>{{ $post->principal == 0 ? "Não" : "Sim" }}</p>
                                 </div>
                                 <div class="col3">
+                                    <p>{{ $post->ativo }}</p>
+                                </div>
+                                <div class="col4">
                                     <a href="{{ $post->image }}" target="_blanck">
                                         <img src="{{ $post->image }}" width="50">
                                     </a>
                                 </div>
-                                <div class="col4">
+                                <div class="col5">
                                     <div class="actions">
                                         <a class="btn btn_custom" data-toggle="collapse"
                                             href="#collapse_foto_id_{{ $post->id }}" role="button"
@@ -208,16 +219,78 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="collapse" id="collapse_foto_id_{{ $post->id }}">
+                                {{-- {{ $post->fotos }} --}}
+    
+                                <div class="content">
+                                    @if (count($post->foto_produto) == 0)
+                                        <div class="item">
+                                            <h3 class="py-2 mb-0" style="text-align: center; width: 100%">Não há fotos
+                                                cadastradas.</h3>
+                                        </div>
+                                    @endif
+    
+                                    @foreach ($post->foto_produto as $foto)
+                                        <div class="item">
+                                            <div class="col1 imagem_center">
+                                                <a href="{{ $foto->imagem_produto }}" target="_blank">
+                                                    <img class="imagem_empresa" src="{{ $foto->imagem_produto }}" alt="Foto">
+                                                </a>
+                                            </div>
+                                            <div class="col3" style="width: 130px">
+                                                <div class="actions">
+                                                    <a class="btn btn-warning" data-toggle="collapse"
+                                                        href="#collapse_id_foto_individual{{ $foto->id }}" role="button"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapse_id_foto_individual{{ $foto->id }}"><i
+                                                            class="fas fa-edit"></i></a>
+                                                    <form action="{{ route('admin_galeria_delete') }}" method="POST"
+                                                        onsubmit="return confirm('Tem certeza que deseja remover esta Foto?')">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $foto->id }}">
+                                                        <button type="submit" class="btn btn-danger"><i
+                                                                class="fas fa-trash"></i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="collapse" id="collapse_id_foto_individual{{ $foto->id }}">
+                                            <div class="card card-body">
+                                                <form action="{{ route('admin_galeria_edit') }}" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $foto->id }}">
+                                                    <div class="form-group">
+                                                        <label for="image">
+                                                            @if ($foto->imagem_produto)
+                                                                Imagem Definida. Caso queira
+                                                                alterar, selecione outra foto.
+                                                            @else
+                                                               Adicionar Imagem do produto
+                                                            @endif
+                                                        </label>
+                                                        <input class="form-control py-1" type="file" accept="image/*"
+                                                            id="image" name="image">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-success">Salvar</button>
+                                                        <a class="btn btn-danger" data-toggle="collapse"
+                                                            href="#collapse_id_foto_individual{{ $foto->id }}" role="button"
+                                                            aria-expanded="false"
+                                                            aria-controls="collapse_id_foto_individual{{ $foto->id }}">Cancelar</a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                             <div class="collapse" id="collapse_id_{{ $post->id }}">
                                 <div class="card card-body">
                                     <form action="{{ route('admin_produtos_edit') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $post->id }}">
-                                        <input type="hidden" name="principal" value="{{ $post->principal }}">
-                                        <input type="hidden" name="estoque" value="{{ $post->estoque }}">
-                                        <input type="hidden" name="ativo" value="{{ $post->ativo }}">
                                         {{-- <div class="form-group">
                                             <label for="title">Titulo do Post</label>
                                             <input required type="text" name="title" id="title"
@@ -265,31 +338,45 @@
                                                 <label for="principal">Produto Principal</label>
                                                 <select required type="text" name="principal" id="principal"
                                                     class="form-control">
-                                                    <option selected disabled> {{ $post->principal == 1 ? 'Sim' : 'Não' }}
-                                                    </option>
-                                                    <option value="1">Sim</option>
-                                                    <option value="0">Não</option>
+                                                    <optgroup label="Selecionado anteriormente">
+                                                        <option selected value="{{ $post->principal }}">
+                                                            {{ $post->principal == 1 ? 'Sim' : 'Não' }}
+                                                        </option>
+                                                    </optgroup>
+                                                    <optgroup label="Selecionar novo">
+                                                        <option value="1">Sim</option>
+                                                        <option value="0">Não</option>
+                                                    </optgroup>
                                                 </select>
                                             </div>
                                             <div style="margin:0 2rem">
                                                 <label for="ativo">Ativo no site</label>
                                                 <select required type="text" name="ativo" id="ativo"
                                                     class="form-control">
-                                                    <option selected> {{ $post->ativo == 'sim' ? 'Sim' : 'Não' }}
-                                                    </option>
-                                                    <option value="Sim">Sim</option>
-                                                    <option value="Não">Não</option>
+                                                    <optgroup label="Selecionado anteriormente">
+                                                        <option selected value="{{ $post->ativo }}">
+                                                            {{ $post->ativo }}
+                                                        </option>
+                                                    </optgroup>
+                                                    <optgroup label="Selecionar novo">
+                                                        <option value="Sim">Sim</option>
+                                                        <option value="Não">Não</option>
+                                                    </optgroup>
                                                 </select>
                                             </div>
                                             <div>
                                                 <label for="estoque">Em Estoque</label>
                                                 <select required type="text" name="estoque" id="estoque"
                                                     class="form-control">
-                                                    <option selected>
-                                                        {{ $post->estoque == 'sim' ? 'Sim' : 'Não' }}
-                                                    </option>
-                                                    <option value="Sim">Sim</option>
-                                                    <option value="Não">Não</option>
+                                                    <optgroup label="Selecionado anteriormente">
+                                                        <option selected value="{{ $post->estoque }}">
+                                                            {{ $post->estoque }}
+                                                        </option>
+                                                    </optgroup>
+                                                    <optgroup label="Selecionar novo">
+                                                        <option value="Sim">Sim</option>
+                                                        <option value="Não">Não</option>
+                                                    </optgroup>
                                                 </select>
                                             </div>
                                             <div style="margin:0 2rem">

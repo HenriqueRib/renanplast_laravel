@@ -105,13 +105,14 @@ class AdminController extends Controller
     public function produto_edit(Request $request)
     {
         $params  = $request->all();
-
+        // dd($params);
         if (!isset($params['cores'])) {
-            $request->session()->flash('error', 'Campo Cores é obrigatório');
-            $params['cores'] = ["Sem cor"];
+            $request->session()->flash('error', 'Campo cores é obrigatória');
+            return redirect()->back();
         }
         if (!isset($params['principal'])) {
-            $params['principal'] = 0; //Não
+            $request->session()->flash('error', 'Campo principal é obrigatória');
+            return redirect()->back();
         }
         if (!isset($params['estoque'])) {
             $request->session()->flash('error', 'Campo Estoque é obrigatório');

@@ -48,7 +48,7 @@
                 <form action="{{ route('admin_search_gallery') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <input style="width: 25vw;" type="text"name="pesquisa" placeholder="Procurar por Empresa?"
+                        <input style="width: 25vw;" type="text"name="pesquisa" placeholder="Procurar por Produto?"
                             @if (isset($paramspesquisa)) value="{{ $paramspesquisa }}" @endif>
                         <button type="submit" class="btn btn-dark">Pesquisar
                         </button>
@@ -61,7 +61,7 @@
                         <h5>Imagem</h5>
                     </div>
                     <div class="col2">
-                        <h5>Empresa</h5>
+                        <h5>Produto</h5>
                     </div>
                     <div class="col3">
                         <h5>Ações</h5>

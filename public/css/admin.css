@@ -187,7 +187,6 @@
     border-right: 1px solid rgba(0, 0, 0, 0.125);
     display: flex;
     align-items: center;
-    height: 3rem;
 }
 
 .content-admin .items-produto-admin .item>div {
@@ -221,17 +220,19 @@
     flex-grow: 1;
     border-right: 1px solid rgba(0, 0, 0, 0.125);
 }
-
 .content-admin .items-produto-admin .col2 {
-    width: 15%;
+    width: 10%;
     border-right: 1px solid rgba(0, 0, 0, 0.125);
 }
-
 .content-admin .items-produto-admin .col3 {
     width: 10%;
     border-right: 1px solid rgba(0, 0, 0, 0.125);
 }
 .content-admin .items-produto-admin .col4 {
+    width: 8%;
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
+.content-admin .items-produto-admin .col5 {
     width: 16%;
 }
 

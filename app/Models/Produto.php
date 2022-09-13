@@ -33,6 +33,6 @@ class Produto extends Model
 
     public function foto_produto()
     {
-        return $this->hasOne(FotoProduto::class, 'id', 'id_produto');
+        return $this->hasMany(FotoProduto::class, 'id_produto', 'id');
     }
 }
