@@ -10,7 +10,7 @@
             <h3 class="card-header">
                 {{ $pagina }} -
 
-                @if ($pagina == 'Produtos Principais')
+                {{-- @if ($pagina == 'Produtos Principais')
                     <a class="btn btn_custom2" href="/admin/produtos">
                         {{ $pagina_filtro }}
                     </a>
@@ -19,8 +19,7 @@
                         {{ $pagina_filtro }}
                     </a>
                 @endif
-
-                -
+                - --}}
                 <a class="btn btn_custom" data-toggle="collapse" href="#openNewPost" role="button" aria-expanded="false"
                     aria-controls="openNewPost">
                     Adicionar Produtos +
@@ -170,19 +169,39 @@
                             </div>
                             <div class="col2 form-input">
                                 <small id="label2" class="form-text text-muted pl-1">
-                                    Procurar por principal
+                                    Procurar pela categoria
                                 </small>
-                                <input type="text" name="principal" id="principal" class="form-control"
-                                    aria-describedby="label2"
-                                    @if (isset($paramsprincipal)) value="{{ $paramsprincipal }}" @endif>
+                                <select required type="text" name="principal" id="principal" class="form-control"
+                                    aria-describedby="label2">
+                                    <option selected disabled>
+                                        @if (isset($paramsprincipal))
+                                            {{ $paramsprincipal == 0 ? 'Não' : 'Sim' }}
+                                        @else
+                                            Escolha uma Opção
+                                        @endif
+                                    </option>
+                                    <option value="">Todos</option>
+                                    <option value="1">Sim</option>
+                                    <option value="0">Não</option>
+                                </select>
                             </div>
                             <div class="col3">
                                 <small id="label2" class="form-text text-muted pl-1">
                                     Procurar por ativo
                                 </small>
-                                <input type="text" name="ativo" id="ativo" class="form-control"
-                                    aria-describedby="label2"
-                                    @if (isset($paramsativo)) value="{{ $paramsativo }}" @endif>
+                                <select required type="text" name="ativo" id="ativo" class="form-control"
+                                    aria-describedby="label2">
+                                    <option selected disabled>
+                                        @if (isset($paramsativo))
+                                            {{ $paramsativo == 0 ? 'Não' : 'Sim' }}
+                                        @else
+                                            Escolha uma Opção
+                                        @endif
+                                    </option>
+                                    <option value="">Todos</option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
                             </div>
                             <div class="col4">
                             </div>

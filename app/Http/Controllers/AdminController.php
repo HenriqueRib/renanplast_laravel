@@ -218,6 +218,12 @@ class AdminController extends Controller
             if ($request['nome'] != null) {
                 $query->where('nome', 'like', '%' . $request['nome'] . '%');
             }
+            if ($request['principal'] != null) {
+                $query->where('principal', 'like', '%' . $request['principal'] . '%');
+            }
+            if ($request['ativo'] != null) {
+                $query->where('ativo', 'like', '%' . $request['ativo'] . '%');
+            }
 
             $posts = $query->paginate(9);
             foreach ($posts as $p) {

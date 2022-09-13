@@ -106,12 +106,8 @@
                                     <input type="hidden" name="id" value="{{ $foto->id }}">
                                     <div class="form-group">
                                         <label for="image">
-                                            @if ($foto->url)
-                                                Imagem Definida. Caso queira
-                                                alterar, selecione outra foto.
-                                            @else
-                                                Imagem de Capa
-                                            @endif
+                                            Imagem Definida. Caso queira
+                                            alterar, selecione outra foto.
                                         </label>
                                         <input class="form-control py-1" type="file" accept="image/*" id="image"
                                             name="image">
