@@ -89,37 +89,56 @@
     <div class="container">
         <h2 class="titulo">Nosso principais produtos</h2>
         <div class="principal_produtos">
+
             <div class="card_produtos">
-                <a href="/produto" class="link">
-                    <div class="card_produto">
-                        <div class="card_img">
-                            <img src="" alt="produto 1">
+
+                @foreach ($produtos_principais as $produto)
+                    <a href="/produto/{{ $produto->id }}" class="link">
+                        <div class="card_produto">
+                            <div class="card_img" style="background-image: url({{ asset($produto->image) }})">
+                                {{-- <img alt="{{ $produto->nome }}"> --}}
+                            </div>
+                            <h5
+                                style="padding-left: 20px;width: 95%; text-align:center; text-overflow: ellipsis; overflow:hidden; white-space: nowrap;">
+                                {{ $produto->nome }}
+                            </h5>
+                            <p
+                                style="padding-left: 20px;width: 95%; text-align:center; text-overflow: ellipsis; overflow:hidden; white-space: nowrap;">
+                                {{ $produto->descricao }}
+                            </p>
                         </div>
-                        <h5>Nome Produto 1</h5>
-                        <p>Descrição produto</p>
-                    </div>
-                </a>
-                <div class="card_produto">
+                    </a>
+                @endforeach
+
+                {{-- <div class="card_produto">
                     <div class="card_img">
                         <img src="" alt="produto 1">
                     </div>
                     <h5>Nome Produto</h5>
                     <p>Descrição produto</p>
                 </div>
+
                 <div class="card_produto">
                     <div class="card_img">
                         <img src="" alt="produto 1">
                     </div>
                     <h5>Nome Produto</h5>
                     <p>Descrição produto</p>
-                </div>
+                </div> --}}
+                @if ($produtos_principais->count() == 0)
+                    <div class="center" style="margin: -50px 0 50px 0">
+                        <h3 class="titulo">No momento nenhum produto foi cadastrado</h3>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
     <div class="center">
-        <button class="btn btn_fale_conesoco">
-            Veja mais produtos
-        </button>
+        <a href="/produtos" class="link">
+            <button class="btn btn_fale_conesoco">
+                Veja mais produtos
+            </button>
+        </a>
     </div>
 
     <div class="efeito">
@@ -168,7 +187,29 @@
         <h2 class="titulo">Mais produtos</h2>
         <div class="mais_produtos">
             <div class="card_produtos">
-                <div class="card_produto">
+                @foreach ($produtos as $produto)
+                    <a href="/produto/{{ $produto->id }}" class="link">
+                        <div class="card_produto">
+                            <div class="card_img" style="background-image: url({{ asset($produto->image) }})">
+                                {{-- <img alt="{{ $produto->nome }}"> --}}
+                            </div>
+                            <h5
+                                style="padding-left: 20px;width: 95%; text-align:center; text-overflow: ellipsis; overflow:hidden; white-space: nowrap;">
+                                {{ $produto->nome }}
+                            </h5>
+                            <p
+                                style="padding-left: 20px;width: 95%; text-align:center; text-overflow: ellipsis; overflow:hidden; white-space: nowrap;">
+                                {{ $produto->descricao }}
+                            </p>
+                        </div>
+                    </a>
+                @endforeach
+                @if ($produtos->count() == 0)
+                    <div class="center" style="margin: -50px 0 50px 0">
+                        <h3 class="titulo">No momento nenhum produto foi cadastrado</h3>
+                    </div>
+                @endif
+                {{-- <div class="card_produto">
                     <div class="card_img">
                         <img src="" alt="produto 1">
                     </div>
@@ -188,8 +229,15 @@
                     </div>
                     <h5>Nome Produto</h5>
                     <p>Descrição produto</p>
-                </div>
+                </div> --}}
             </div>
+        </div>
+        <div class="center" style="margin: -50px 0 50px 0">
+            <a href="/produtos" class="link">
+                <button class="btn btn_fale_conesoco">
+                    Veja mais produtos
+                </button>
+            </a>
         </div>
     </div>
 

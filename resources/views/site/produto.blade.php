@@ -15,7 +15,7 @@
             <div>
                 <form action="{{ route('contato_email') }}" method="POST" id="formulario" class="formulario_presquisar">
                     @csrf
-                    <input type="text" class="form-control" placeholder="Digite aqui o nome do produto" name="produto"
+                    <input type="text" class="form-control" placeholder="Pesquisar outro produto" name="produto"
                         id="produto" required>
                     <button type="submit" class="btn">
                         <i class="fas fa-search"></i>
@@ -30,7 +30,7 @@
             <div class="carrosel_produto">
                 <section class="carousel" aria-label="carousel">
                     <div class="current-image">
-                        <img src="../img/site/logo.png" alt="Succulents 1">
+                        <img src="{{ $produto->image }}" alt="{{ $produto->nome }}">
                     </div>
                     <div class="thumbnails-track">
                         <div class="splide">
@@ -38,67 +38,24 @@
                                 <div class="splide__list">
                                     <div class="thumbnail splide__slide">
                                         <button class="thumbnail-button" aria-current="true">
-                                            <img src="../img/site/logo.png" alt="image 1 of 5" data-full-alt="Succulents 1">
+                                            <img src="{{ $produto->image }}" alt="{{ $produto->nome }}"
+                                                data-full-alt="{{ $produto->nome }}">
                                         </button>
                                     </div>
-
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="../img/site/logo.png" alt="image 2 of 5" data-full-alt="Succulents 2">
-                                        </button>
-                                    </div>
-
-                                    <div class="thumbnail splide__slide">
+                                    @foreach ($produto->foto_produto as $foto)
+                                        <div class="thumbnail splide__slide">
+                                            <button class="thumbnail-button">
+                                                <img src="{{ $foto->imagem_produto }}">
+                                            </button>
+                                        </div>
+                                    @endforeach
+                                    {{-- <div class="thumbnail splide__slide">
                                         <button class="thumbnail-button">
                                             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/armando-castillejo-500x500.jpg"
                                                 alt="image 3 of 5" data-full-alt="Succulents 3">
                                         </button>
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/calle-macarone-500x500.jpg"
-                                                alt="image 4 of 5" data-full-alt="Succulents 4">
-                                        </button>
-                                    </div>
-
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
-                                                alt="image 5 of 5" data-full-alt="Succulents 5">
-                                        </button>
-                                    </div>
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
-                                                alt="image 5 of 5" data-full-alt="Succulents 5">
-                                        </button>
-                                    </div>
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
-                                                alt="image 5 of 5" data-full-alt="Succulents 5">
-                                        </button>
-                                    </div>
-
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
-                                                alt="image 5 of 5" data-full-alt="Succulents 5">
-                                        </button>
-                                    </div>
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
-                                                alt="image 5 of 5" data-full-alt="Succulents 5">
-                                        </button>
-                                    </div>
-                                    <div class="thumbnail splide__slide">
-                                        <button class="thumbnail-button">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3609497/annie-spratt-500x500.jpg"
-                                                alt="image 5 of 5" data-full-alt="Succulents 5">
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -106,11 +63,32 @@
                 </section>
             </div>
             <div class="produto_texto">
-                <h3 class="titulo">Nome do produto</h3>
+                <h3 class="titulo">{{ $produto->nome }}</h3>
                 <div class="produto_linha">
-                    <h4>Preço</h4>
-                    <p>Em estoque</p>
+                    @if ($produto->preco != null)
+                        <h4>Preço: {{ $produto->preco }}</h4>
+                    @else
+                        <h4>&nbsp;</h4>
+                    @endif
+                    @if ($produto->estoque == 'Sim')
+                        <p> <b> Em estoque </b></p>
+                    @else
+                        <p> <b> Sem estoque </b></p>
+                    @endif
                 </div>
+                <div class="produto_linha">
+                    @if ($produto->lote != null)
+                        <p><b>Lote: {{ $produto->lote }}</b></p>
+                    @else
+                        <p>&nbsp;</p>
+                    @endif
+                    @if ($produto->serie != null)
+                        <p><b>Serie: {{ $produto->serie }}</b></p>
+                    @else
+                        <p> <b> Sem estoque </b></p>
+                    @endif
+                </div>
+                <br>
                 <div class="produto_btn">
                     <p>
                         Para mais informações fale conosco pelo whatsapp
@@ -121,14 +99,34 @@
                         </button>
                     </a>
                 </div>
+                <div class="descricao">
+                    <div class="descricao_texto">
+                        <h4>Descrição</h4>
+                        <p>{{ $produto->descricao }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="descricao"> 
+        <div class="descricao">
             <div class="descricao_texto">
-                <h4>Descrição</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse cupiditate accusantium a sapiente delectus quasi possimus tempora explicabo consequatur quia eos assumenda similique officia, soluta odit laboriosam neque architecto eaque!</p>
+                @if ($produto->modo != null)
+                    <h4>Modo de uso</h4>
+                    <p>{{ $produto->modo }}</p>
+                @endif
+                @if ($produto->medidas != null)
+                    <h4>Medidas</h4>
+                    <p>{{ $produto->medidas }}</p>
+                @endif
+
+                @if ($produto->modo == null && $produto->medidas == null)
+                    <br>
+                    <br> <br>
+                    <br> <br>
+                    <br>
+                @endif
+
             </div>
         </div>
     </div>

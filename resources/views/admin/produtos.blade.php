@@ -42,12 +42,12 @@
                         </div>
                         <div class="form-group">
                             <label for="modo">Modo de uso</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
+                            <textarea class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
                                 value="{{ old('modo') }}" id="modo">{{ old('modo') }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="medidas">Medidas</label>
-                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
+                            <textarea class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
                                 value="{{ old('medidas') }}" id="medidas">{{ old('medidas') }}</textarea>
                         </div>
                         <div class="form-group item__column" style="display: flex">
@@ -92,7 +92,7 @@
                                     <option value="Não">Não</option>
                                 </select>
                             </div>
-                            <div style="margin:0 2rem">
+                            {{-- <div style="margin:0 2rem">
                                 <div>
                                     <label for="cores">
                                         Selecione um ou mais Cores
@@ -106,7 +106,7 @@
                                     <option value="Dorado">Dorado</option>
                                     <option value="Sem cor">Sem cor</option>
                                 </select>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="form-group">
                             <label for="observacao">Observação</label>
@@ -347,12 +347,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="modo">Modo de uso</label>
-                                            <textarea required="" class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
+                                            <textarea class="form-control" placeholder="Digite aqui o modo de uso" rows="2" name="modo"
                                                 value="{{ $post->modo }}" id="modo">{{ $post->modo }}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="medidas">Medidas</label>
-                                            <textarea required="" class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
+                                            <textarea class="form-control" placeholder="Digite aqui as medidas" rows="3" name="medidas"
                                                 value="{{ $post->medidas }}" id="medidas">{{ $post->medidas }}</textarea>
                                         </div>
                                         <div class="form-group item__column" style="display: flex">
@@ -418,7 +418,7 @@
                                                     </optgroup>
                                                 </select>
                                             </div>
-                                            <div style="margin:0 2rem">
+                                            {{-- <div style="margin:0 2rem">
                                                 <div>
                                                     <label for="cores">
                                                         Selecione um ou mais Cores: {{ $post->cores[0] }}
@@ -440,7 +440,7 @@
                                                         <option value="Sem cor">Sem cor</option>
                                                     </optgroup>
                                                 </select>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="form-group">
                                             <label for="observacao">Observação</label>

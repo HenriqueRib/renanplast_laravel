@@ -121,10 +121,10 @@ class AdminController extends Controller
     {
         $params  = $request->all();
         // dd($params);
-        if (!isset($params['cores'])) {
-            $request->session()->flash('error', 'Campo cores é obrigatória');
-            return redirect()->back();
-        }
+        // if (!isset($params['cores'])) {
+        //     $request->session()->flash('error', 'Campo cores é obrigatória');
+        //     return redirect()->back();
+        // }
         if (!isset($params['principal'])) {
             $request->session()->flash('error', 'Campo principal é obrigatória');
             return redirect()->back();
@@ -155,7 +155,7 @@ class AdminController extends Controller
                 $produto->image = $path;
             }
 
-            $produto->cores = implode(", ", $params['cores']);
+            // $produto->cores = implode(", ", $params['cores']);
             $produto->nome = $request->nome;
             $produto->descricao = $request->descricao;
             $produto->modo = $request->modo;
@@ -165,7 +165,6 @@ class AdminController extends Controller
             $produto->preco = $request->preco;
             $produto->estoque = $request->estoque;
             $produto->ativo = $request->ativo;
-            $produto->cores = $request->cores;
             $produto->observacao = $request->observacao;
             $produto->principal = $request->principal;
             $produto->save();
