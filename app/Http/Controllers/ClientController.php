@@ -27,15 +27,38 @@ class ClientController extends Controller
         return view('site.sobre');
     }
 
-    public function produtos()
+    public function produtos(Request $request)
+    {
+        $produtos = Produto::orderBy('id', 'desc')->where('principal', '=', 0)->where('ativo', '=', 'Sim')->paginate(3);
+
+        $produtos_principais = Produto::orderBy('id', 'desc')->where('principal', '=', 1)->where('ativo', '=', 'Sim')->limit(3)->get();
+
+        $search = null;
+
+        return view('site.produtos', compact('produtos', 'produtos_principais', 'search'));
+        // return view('site.produtos');
+    }
+
+    public function produtos_search(Request $request)
     {
         $produtos = Produto::orderBy('id', 'desc')->where('principal', '=', 0)->where('ativo', '=', 'Sim')->paginate(3);
 
         $produtos_principais = Produto::orderBy('id', 'desc')->where('principal', '=', 1)->where('ativo', '=', 'Sim')->paginate(3);
 
-        return view('site.produtos', compact('produtos', 'produtos_principais'));
+
+        $query = Produto::select('*')->orderBy('id', 'desc');
+        if ($request['pesquisa'] != null) {
+            $query->where('nome', 'like', '%' . $request['pesquisa'] . '%');
+        }
+        $search = $query->get();
+        foreach ($search as $p) {
+            $p->cores = explode(", ", $p->cores);
+        }
+        // dd($search);
+        return view('site.produtos', compact('produtos', 'produtos_principais', 'search'));
         // return view('site.produtos');
     }
+
     public function produto($id)
     {
         $produto = Produto::where('id', $id)->with(['foto_produto'])->first();

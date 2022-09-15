@@ -9,14 +9,20 @@
 @section('meta-description', 'Entre e acesse o site da RenanPlast')
 
 @section('content')
+    <div class="popup-home none">
+        <div class="content">
+            <i class="far fa-times-circle"></i>
+            <img src>
+        </div>
+    </div>
 
     <div class="container">
         <div class="pesquisar">
             <div>
-                <form action="{{ route('contato_email') }}" method="POST" id="formulario" class="formulario_presquisar">
+                <form action="{{ route('produtos_search') }}" method="POST" id="formulario" class="formulario_presquisar">
                     @csrf
-                    <input type="text" class="form-control" placeholder="Pesquisar outro produto" name="produto"
-                        id="produto" required>
+                    <input type="text" class="form-control" placeholder="Pesquisar outro produto" name="pesquisa"
+                        id="pesquisa" required>
                     <button type="submit" class="btn">
                         <i class="fas fa-search"></i>
                     </button>
@@ -29,9 +35,15 @@
         <div class="destaque_produto">
             <div class="carrosel_produto">
                 <section class="carousel" aria-label="carousel">
-                    <div class="current-image">
+                    {{-- <div class="current-image">
                         <img src="{{ $produto->image }}" alt="{{ $produto->nome }}">
+                    </div> --}}
+                    <div class="current-image">
+                        <img class="imgtarget" src="{{ $produto->image }}" alt="{{ $produto->nome }}">
                     </div>
+                    {{-- <div class="item" style="background-image: url('{{ asset($noticia->image) }}') ">
+                        <img  src="{{ $noticia->image }}">
+                        </div> --}}
                     <div class="thumbnails-track">
                         <div class="splide">
                             <div class="splide__track">
@@ -192,65 +204,50 @@
             thumbnailButton.setAttribute('aria-current', true);
         }
 
-        // A $( document ).ready() block.
-        $(document).ready(function() {
-            resizeFooter();
-        });
-        $(window).resize(function() {
-            resizeFooter();
-        });
+        const popup = document.querySelector('.popup-home');
+        const content = document.querySelector('.popup-home .content');
+        const close = document.querySelector('.popup-home .content i');
+        const imgPopup = document.querySelector('.popup-home .content img');
+        const imgs = document.querySelectorAll('.imgtarget');
 
-        function resizeFooter() {
-            $("#contato").each(function() {
-                $(this).css('height', this.clientWidth / 2.5)
+        imgs.forEach((img) => {
+            img.addEventListener('click', function() {
+                if (popup.classList.contains('none')) {
+                    imgPopup.src = img.src;
+                    popup.classList.remove('none');
+                    popup.style.animation = "opening .3s forwards";
+                } else {
+                    popup.style.animation = "close .3s forwards";
+                    setTimeout(() => {
+                        popup.classList.add('none');
+                    }, 700)
+                }
             })
-        }
 
-        $("#formulario").submit(function(event) {
-            if (!isEmail($("#email").val())) {
-                alert("Verifique o e-mail digitado e tente novamente!")
-                event.preventDefault();
-                return;
-            }
-            if ($("#name").val().length == 0) {
-                alert("Verifique o nome e tente novamente!")
-                event.preventDefault();
-                return;
-            }
-            if ($("#text").val().length == 0) {
-                alert("Verifique a mensagem e tente novamente")
-                event.preventDefault();
-                return;
-            }
-        });
+            popup.addEventListener('click', function() {
+                if (popup.classList.contains('none')) {
+                    popup.classList.remove('none');
+                    popup.style.animation = "opening .3s forwards";
+                } else {
+                    popup.style.animation = "close .3s forwards";
+                    setTimeout(() => {
+                        popup.classList.add('none');
+                    }, 700)
+                }
+            })
 
-        function valida() {
-            inputEmail = document.querySelector('#email');
+            close.addEventListener('click', function() {
+                if (popup.classList.contains('none')) {
+                    popup.classList.remove('none');
+                    popup.style.animation = "opening .3s forwards";
+                } else {
+                    popup.style.animation = "close .3s forwards";
+                    setTimeout(() => {
+                        popup.classList.add('none');
+                    }, 700)
+                }
+            })
 
-            if (!isEmail(inputEmail.value)) {
-
-                //enquanto digita, checa se o valor está certo e se sim, remove o alert red
-                $('#email').keypress(function() {
-                    if (isEmail(inputEmail.value)) {
-                        document.querySelector('.email-validation').classList.add('hide-self');
-                        inputEmail.classList.remove('is-invalid');
-                    }
-                });
-
-                //adiciona alert red caso email incorreto
-                document.querySelector('.email-validation').classList.remove('hide-self');
-                inputEmail.classList.add('is-invalid');
-
-            } else {
-                //remove o alert red caso email certo
-                document.querySelector('.email-validation').classList.add('hide-self');
-                inputEmail.classList.remove('is-invalid');
-            }
-        }
-
-        function isEmail(email) {
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            return regex.test(email);
-        }
+        })
     </script>
 @endpush

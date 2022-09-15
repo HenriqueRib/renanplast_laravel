@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', ['App\Http\Controllers\ClientController', 'home'])->name('home');
 Route::get('/sobre', ['App\Http\Controllers\ClientController', 'sobre'])->name('sobre');
 Route::get('/produtos', ['App\Http\Controllers\ClientController', 'produtos'])->name('produtos');
+Route::post('/produtos', ['App\Http\Controllers\ClientController', 'produtos_search'])->name('produtos_search');
 Route::get('/produto/{id}', ['App\Http\Controllers\ClientController', 'produto'])->name('produto');
 Route::get('/contato', ['App\Http\Controllers\ClientController', 'contato'])->name('contato');
 Route::get('/construcao', ['App\Http\Controllers\ClientController', 'construcao'])->name('construcao');

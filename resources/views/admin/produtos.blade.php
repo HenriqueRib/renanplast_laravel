@@ -169,7 +169,7 @@
                             </div>
                             <div class="col2 form-input">
                                 <small id="label2" class="form-text text-muted pl-1">
-                                    Procurar pela categoria
+                                    Procurar por principal
                                 </small>
                                 <select required type="text" name="principal" id="principal" class="form-control"
                                     aria-describedby="label2">

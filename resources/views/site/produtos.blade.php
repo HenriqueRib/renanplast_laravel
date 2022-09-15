@@ -13,10 +13,10 @@
     <div class="container">
         <div class="pesquisar">
             <div>
-                <form action="{{ route('contato_email') }}" method="POST" id="formulario" class="formulario_presquisar">
+                <form action="{{ route('produtos_search') }}" method="POST" id="formulario" class="formulario_presquisar">
                     @csrf
-                    <input type="text" class="form-control" placeholder="Digite aqui o nome do produto" name="produto"
-                        id="produto" required>
+                    <input type="text" class="form-control" placeholder="Digite aqui o nome do produto" name="pesquisa"
+                        id="pesquisa" required>
                     <button type="submit" class="btn">
                         <i class="fas fa-search"></i>
                     </button>
@@ -24,6 +24,41 @@
             </div>
         </div>
     </div>
+    @if ($search != null)
+        <div class="container">
+            <h2 class="titulo">Veja o que encontramos em sua pesquisa</h2>
+            <div class="principal_produtos">
+                <div class="card_produtos">
+                    <div class="row" @if ($search->count() == 2) style="display: block" @endif>
+                        @foreach ($search as $produto)
+                            <div class="col-4 mt-5">
+                                <a href="produto/{{ $produto->id }}" class="link">
+                                    <div class="card_produto">
+                                        <div class="card_img" style="background-image: url({{ asset($produto->image) }})">
+                                            {{-- <img alt="{{ $produto->nome }}"> --}}
+                                        </div>
+                                        <h5
+                                            style="padding-left: 20px;width: 95%; text-align:center; text-overflow: ellipsis; overflow:hidden; white-space: nowrap;">
+                                            {{ $produto->nome }}
+                                        </h5>
+                                        <p
+                                            style="padding-left: 20px;width: 95%; text-align:center; text-overflow: ellipsis; overflow:hidden; white-space: nowrap;">
+                                            {{ $produto->descricao }}
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                    @if ($search->count() == 0)
+                        <div class="center" style="margin: -50px 0 50px 0">
+                            <h3 class="titulo">Nenhum produto foi encontrado em sua pesquisa</h3>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    @endif
 
     <div class="efeito">
         <marquee behavior="scroll" direction="right" scrollamount="15">
@@ -64,11 +99,6 @@
                     </div>
                 @endif
             </div>
-        </div>
-    </div>
-    <div class="center" style="margin: 150px 0 -50px 0">
-        <div class="paginacao">
-            <h1> {{ $produtos_principais->withQueryString()->links() }}</h1>
         </div>
     </div>
 
@@ -123,66 +153,4 @@
 @endsection
 
 @push('footerData')
-    <script>
-        // A $( document ).ready() block.
-        $(document).ready(function() {
-            resizeFooter();
-        });
-        $(window).resize(function() {
-            resizeFooter();
-        });
-
-        function resizeFooter() {
-            $("#contato").each(function() {
-                $(this).css('height', this.clientWidth / 2.5)
-            })
-        }
-
-        $("#formulario").submit(function(event) {
-            if (!isEmail($("#email").val())) {
-                alert("Verifique o e-mail digitado e tente novamente!")
-                event.preventDefault();
-                return;
-            }
-            if ($("#name").val().length == 0) {
-                alert("Verifique o nome e tente novamente!")
-                event.preventDefault();
-                return;
-            }
-            if ($("#text").val().length == 0) {
-                alert("Verifique a mensagem e tente novamente")
-                event.preventDefault();
-                return;
-            }
-        });
-
-        function valida() {
-            inputEmail = document.querySelector('#email');
-
-            if (!isEmail(inputEmail.value)) {
-
-                //enquanto digita, checa se o valor está certo e se sim, remove o alert red
-                $('#email').keypress(function() {
-                    if (isEmail(inputEmail.value)) {
-                        document.querySelector('.email-validation').classList.add('hide-self');
-                        inputEmail.classList.remove('is-invalid');
-                    }
-                });
-
-                //adiciona alert red caso email incorreto
-                document.querySelector('.email-validation').classList.remove('hide-self');
-                inputEmail.classList.add('is-invalid');
-
-            } else {
-                //remove o alert red caso email certo
-                document.querySelector('.email-validation').classList.add('hide-self');
-                inputEmail.classList.remove('is-invalid');
-            }
-        }
-
-        function isEmail(email) {
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            return regex.test(email);
-        }
-    </script>
 @endpush
