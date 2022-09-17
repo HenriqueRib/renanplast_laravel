@@ -105,7 +105,7 @@
                     <p>
                         Para mais informações fale conosco pelo whatsapp
                     </p>
-                    <a href="" class="link">
+                    <a href="https://api.whatsapp.com/send?phone=5511953125814" class="link">
                         <button class="btn faleconosco_btn">
                             Fale conosco
                         </button>
