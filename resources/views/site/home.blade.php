@@ -37,7 +37,7 @@
                                                 <div class="center">
                                                     <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
-                                                            Fale conosco no whatsapp para mais informação 
+                                                            Fale conosco !
                                                         </button>
                                                     </a>
                                                 </div>
@@ -63,7 +63,7 @@
                                                 <div class="center">
                                                     <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
-                                                            Fale conosco no whatsapp para mais informação 
+                                                            Fale conosco ! 
                                                         </button>
                                                     </a>
                                                 </div>
