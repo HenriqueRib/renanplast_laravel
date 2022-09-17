@@ -26,30 +26,21 @@
                     <ul class="splide__list">
                         <li class="splide__slide">
                             <div class="banner">
-                                <div class="banner_img" style="background-image: url('/img/site/banner/banner1.png')">
-                                    <div class="banner_centralizar">
-                                        <div class="banner_txt">
-                                            <div class="banner_texto">
-                                                <h3>Fabricação Própria</h3>
-                                                <h6>
-                                                    INFORMAÇÃO
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="banner">
-                                <div class="banner_img" style="background-image: url('/img/site/banner/banner1.png')">
+                                <div class="banner_img banner_img1" >
                                     <div class="banner_centralizar">
                                         <div class="banner_txt">
                                             <div class="banner_texto">
                                                 <h3>Serviços Artesanais</h3>
                                                 <h6>
-                                                    INFORMAÇÃO
+                                                    Temos agulha mágica e muitos outros produtos que você já conhece. 
                                                 </h6>
+                                                <div class="center">
+                                                    <a href="/produtos" class="link">
+                                                        <button class="btn btn_fale_conesoco">
+                                                            Fale conosco no whatsapp para mais informação 
+                                                        </button>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -58,14 +49,53 @@
                         </li>
                         <li class="splide__slide">
                             <div class="banner">
-                                <div class="banner_img" style="background-image: url('/img/site/banner/banner1.png')">
+                                <div class="banner_img banner_img2">
+                                    <div class="banner_centralizar">
+                                        <div class="banner_txt">
+                                            <div class="banner_texto">
+                                                <h3>Fabricação Própria</h3>
+                                                <h6>
+                                                    Precisa de um produto personalizado? 
+                                                </h6>
+                                                <h6>    
+                                                    Aqui você encontra!
+                                                </h6>
+                                                <div class="center">
+                                                    <a href="/produtos" class="link">
+                                                        <button class="btn btn_fale_conesoco">
+                                                            Fale conosco no whatsapp para mais informação 
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="banner">
+                                <div class="banner_img banner_img3">
                                     <div class="banner_centralizar">
                                         <div class="banner_txt">
                                             <div class="banner_texto">
                                                 <h3>Serviços com Plástico</h3>
                                                 <h6>
-                                                    INFORMAÇÃO
+                                                    Temos a nossa própria máquina injetora de plástico. 
                                                 </h6>
+                                                <h6>
+                                                    Gostaria de utilizada por hora máquina? 
+                                                </h6>
+                                                <h6>
+                                                    Traga seu molde e utilize a máquina.
+                                                </h6>
+                                                <div class="center">
+                                                    <a href="/produtos" class="link">
+                                                        <button class="btn btn_fale_conesoco">
+                                                            Clique aqui para mais informação 
+                                                        </button>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +194,7 @@
             </div>
             <div class="img_fazemos">
                 <div class="imagem_fazemos">
-                    <img src="" alt="imagem de amostra do produto">
+                    <img src="/img/site/banner/produtos_oquefazemos.jpg" width="450" alt="imagem de amostra do produto">
                 </div>
             </div>
         </div>
