@@ -35,7 +35,7 @@
                                                     Temos agulha mágica e muitos outros produtos que você já conhece. 
                                                 </h6>
                                                 <div class="center">
-                                                    <a href="/produtos" class="link">
+                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
                                                             Fale conosco no whatsapp para mais informação 
                                                         </button>
@@ -61,7 +61,7 @@
                                                     Aqui você encontra!
                                                 </h6>
                                                 <div class="center">
-                                                    <a href="/produtos" class="link">
+                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
                                                             Fale conosco no whatsapp para mais informação 
                                                         </button>
@@ -90,7 +90,7 @@
                                                     Traga seu molde e utilize a máquina.
                                                 </h6>
                                                 <div class="center">
-                                                    <a href="/produtos" class="link">
+                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
                                                             Clique aqui para mais informação 
                                                         </button>
@@ -199,9 +199,11 @@
             </div>
         </div>
         <div class="center">
-            <button class="btn btn_fale_conesoco">
-                Solicite um orçamento
-            </button>
+            <a href="https://api.whatsapp.com/send?phone=5511953125814" class="link" target="_blank">
+                <button class="btn btn_fale_conesoco">
+                    Solicite um orçamento
+                </button>
+            </a>
         </div>
     </div>
 
