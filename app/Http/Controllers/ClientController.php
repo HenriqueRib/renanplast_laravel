@@ -62,6 +62,10 @@ class ClientController extends Controller
     public function produto($id)
     {
         $produto = Produto::where('id', $id)->with(['foto_produto'])->first();
+
+        $produto->view = $produto->view + 1;
+        $produto->save();
+
         return view('site.produto', compact('produto'));
     }
 
