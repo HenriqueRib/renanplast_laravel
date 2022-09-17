@@ -63,7 +63,7 @@
                             </div>
                             <div>
                                 <label for="preco">Preço</label>
-                                <input required type="text" name="preco" id="preco" class="form-control"
+                                <input type="text" name="preco" id="preco" class="form-control"
                                     value="{{ old('preco') }}">
                             </div>
                         </div>
@@ -368,7 +368,7 @@
                                             </div>
                                             <div>
                                                 <label for="preco">Preço</label>
-                                                <input required type="text" name="preco" id="preco"
+                                                <input type="text" name="preco" id="preco"
                                                     class="form-control" value="{{ $post->preco }}">
                                             </div>
                                         </div>
