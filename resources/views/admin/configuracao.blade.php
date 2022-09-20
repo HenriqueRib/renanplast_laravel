@@ -4,7 +4,8 @@
 
 @section('content')
     <div class="content-admin">
-        @component('components.admin.nav')@endcomponent
+        @component('components.admin.nav')
+        @endcomponent
         <div class="content card">
             <div class="card-header">
                 <h1>Configuração</h1>
@@ -19,8 +20,7 @@
                         @if (Auth::user()->image != null)
                             <div class="config_img">
                                 Imagem atual
-                                <div class="img_config"
-                                    style="background-image: url({{ asset(Auth::user()->image) }});">
+                                <div class="img_config" style="background-image: url({{ asset(Auth::user()->image) }});">
                                 </div>
                             </div>
                         @endif
@@ -37,9 +37,11 @@
                     <div>
                         <div class="config_div_img">
                             <div>
-                                <label for="image">{{ Auth::user()->image ? 'Escolher nova imagem' : 'Escolher imagem' }}
+                                <label
+                                    for="image">{{ Auth::user()->image ? 'Escolher nova imagem perfil' : 'Escolher imagem perfil' }}
                                 </label>
-                                <input class="form-control py-1" type="file" accept="image/*" id="image" name="image">
+                                <input class="form-control py-1" type="file" accept="image/*" id="image"
+                                    name="image">
                             </div>
                             <img id="image_real" class="miniatura">
                         </div>
@@ -47,7 +49,7 @@
                         <div class="config_div_img">
                             <div>
                                 <label
-                                    for="banner_image">{{ Auth::user()->image ? 'Escolher nova imagem' : 'Escolher imagem' }}
+                                    for="banner_image">{{ Auth::user()->image ? 'Escolher nova imagem banner' : 'Escolher imagem banner' }}
                                 </label>
                                 <input class="form-control py-1" type="file" accept="image/*" id="banner_image"
                                     name="banner_image">
@@ -92,12 +94,12 @@
         </div>
     </div>
 
-    @component('components.popup_automatico')@endcomponent
+    @component('components.popup_automatico')
+    @endcomponent
 
 @endsection
 
 @push('footerData')
-
     <script src='https://www.hCaptcha.com/1/api.js' async defer></script>
 
     <script>
@@ -190,7 +192,6 @@
             return regex.test(email);
         }
     </script>
-
 @endpush
 
 <style>
@@ -202,5 +203,4 @@
         background-color: red;
         color: #737373;
     }
-
 </style>

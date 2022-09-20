@@ -99,7 +99,7 @@
                     <div class="col3">
                         <h5>Tipo</h5>
                     </div>
-                    <div class="col5">
+                    <div class="col4">
                         <h5>Ações</h5>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                                     <p>{{ $user->tipo }}</p>
                                 @endif
                             </div>
-                            <div class="col5">
+                            <div class="col4">
                                 <div class="actions">
                                     <div class="dropleft">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"

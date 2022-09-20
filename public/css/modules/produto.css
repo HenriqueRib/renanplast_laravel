@@ -101,6 +101,7 @@
     margin-bottom: 25px;
 }
 .produto_texto{
+    max-width: 35vw;
     display: flex;
     flex-direction: column;
 }
@@ -273,6 +274,9 @@
     }
     .item {
         width: 90vw;
+    }
+    .produto_texto{
+        max-width: 80vw;
     }
 }
 

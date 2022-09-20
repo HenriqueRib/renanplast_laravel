@@ -10,7 +10,7 @@
 
 @section('content')
     @php
-    $esconde = 1;
+        $esconde = 1;
     @endphp
 
     <div class="container">
@@ -147,6 +147,15 @@
             </div>
         </div>
     @endif
+
+    <div class="conatiner">
+        <div class="mapa_possition">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3661.7488851299604!2d-46.2799!3d-23.3973!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7e0f43f02677%3A0xa968517991efe97c!2sAv.%20Amianto%2C%201551%20-%20Ch%C3%A1caras%20Copaco%2C%20Aruj%C3%A1%20-%20SP%2C%2007432-575!5e0!3m2!1spt-BR!2sbr!4v1663682549027!5m2!1spt-BR!2sbr"
+                width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+        </div>
+    </div>
 
 @endsection
 

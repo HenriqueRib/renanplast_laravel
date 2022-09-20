@@ -194,6 +194,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    word-break: break-word;
 }
 
 .content-admin .items-produto-admin .item>div p {
@@ -486,6 +487,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    word-break: break-word;
 }
 
 .content-admin .items-administradores-admin .item>div.col1 {
@@ -537,13 +539,14 @@
 }
 
 .content-admin .items-administradores-admin .col3 {
-    width: 200px;
+    width: 180px;
     border-right: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .content-admin .items-administradores-admin .col4 {
-    width: 150px;
-    border-right: 1px solid rgba(0, 0, 0, 0.125);
+    width: 90px;
+        /* width: 150px;
+    border-right: 1px solid rgba(0, 0, 0, 0.125); */
 }
 
 .content-admin .items-administradores-admin .col5 {
@@ -611,5 +614,66 @@
     }
     .content-admin {
         display: block;
+    }
+    .content-admin .items-fotos-admin .item div.actions a, .content-admin .items-fotos-admin .item div.actions form {
+        width: 100%;
+        margin: 8px;
+    }
+    .content-admin .items-fotos-admin .item div.actions {
+    flex-direction: column;
+    }
+    .content-admin .items-fotos-admin .item > div a img {
+        max-width: 30vw;
+    }
+    .total {
+        flex-direction: column;
+    }
+    .search_administradores_users {
+        align-items: center;
+        text-align: center;
+    }
+    .search_administradores_users_col3 {
+        margin: 8px;
+    }
+    .content-admin>.content {
+        flex-grow: 1;
+        margin: 35px 0;
+    }
+    .card-header {
+        display: contents;
+    }
+
+    .content-admin .items-produto-admin .col1 {
+        /* flex-grow: 1; */
+        width: 120px;
+        border-right: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    .content-admin .items-produto-admin .col2 {
+        width: 65px;
+        border-right: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    .content-admin .items-produto-admin .col3 {
+        width: 60px;
+        border-right: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    .content-admin .items-produto-admin .col4 {
+        width: 60px;
+        border-right: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    .content-admin .items-produto-admin .col5 {
+        width: 60px;
+    }
+    .content-admin .items-produto-admin .item div.actions {
+        flex-direction: column;
+    }
+    .visualizacao_produto {
+        flex-direction: column;
+    }
+    .content-admin .items-produto-admin  {
+        text-align: center;
+    }
+    .content-admin .items-produto-admin .item div.actions a, .content-admin .items-produto-admin .item div.actions form {
+        width: auto;
+        margin: 8px;
     }
 }

@@ -26,13 +26,13 @@
                 <div class="footer_mobile">
                     <h3 class="titulo_footer"> Central de Atendimento</h3>
                     <p class="link" style="margin: 5px 0">
-                        (11) 0000-0000
+                        (11) 95312-5814
                     </p>
                     <p class="link" style="margin: 5px 0">
                         Segunda a Quinta: Das 08h00 às 18h00
                     </p>
                     <p class="link" style="margin: 5px 0">
-                        Sexta: das 08h00 às 17h00
+                        Sexta: das 08h00 às 17h30
                     </p>
                 </div>
             </div>

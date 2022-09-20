@@ -26,16 +26,17 @@
                     <ul class="splide__list">
                         <li class="splide__slide">
                             <div class="banner">
-                                <div class="banner_img banner_img1" >
+                                <div class="banner_img banner_img1">
                                     <div class="banner_centralizar">
                                         <div class="banner_txt">
                                             <div class="banner_texto">
                                                 <h3>Serviços Artesanais</h3>
                                                 <h6>
-                                                    Temos agulha mágica e muitos outros produtos que você já conhece. 
+                                                    Temos agulha mágica e muitos outros produtos que você já conhece.
                                                 </h6>
                                                 <div class="center">
-                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
+                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814"
+                                                        target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
                                                             Fale conosco !
                                                         </button>
@@ -55,15 +56,16 @@
                                             <div class="banner_texto">
                                                 <h3>Fabricação Própria</h3>
                                                 <h6>
-                                                    Precisa de um produto personalizado? 
+                                                    Precisa de um produto personalizado?
                                                 </h6>
-                                                <h6>    
+                                                <h6>
                                                     Aqui você encontra!
                                                 </h6>
                                                 <div class="center">
-                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
+                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814"
+                                                        target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
-                                                            Fale conosco ! 
+                                                            Fale conosco !
                                                         </button>
                                                     </a>
                                                 </div>
@@ -81,18 +83,19 @@
                                             <div class="banner_texto">
                                                 <h3>Serviços com Plástico</h3>
                                                 <h6>
-                                                    Temos a nossa própria máquina injetora de plástico. 
+                                                    Temos a nossa própria máquina injetora de plástico.
                                                 </h6>
                                                 <h6>
-                                                    Gostaria de utilizada por hora máquina? 
+                                                    Gostaria de utilizada por hora máquina?
                                                 </h6>
                                                 <h6>
                                                     Traga seu molde e utilize a máquina.
                                                 </h6>
                                                 <div class="center">
-                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank" class="link">
+                                                    <a href="https://api.whatsapp.com/send?phone=5511953125814"
+                                                        target="_blank" class="link">
                                                         <button class="btn btn_fale_conesoco">
-                                                            Clique aqui para mais informação 
+                                                            Clique aqui para mais informação
                                                         </button>
                                                     </a>
                                                 </div>
@@ -180,16 +183,29 @@
     </div>
 
     <div class="container">
-        <h2 class="titulo">O que Fazemos</h2>
+        <h2 class="titulo">O que proporcionamos ao nossos clientes</h2>
         <div class="fazemos">
             <div class="">
                 <div>
-                    <h5>Artesanato</h5>
-                    <p>Informação</p>
-                    <h5>Manuais</h5>
-                    <p>Informação</p>
-                    <h5>Plástico</h5>
-                    <p>Informação</p>
+                    <h5 class="titulo2">Artesanato</h5>
+                    <p>
+                        Permita-se liberar o estresse e sentir a calmaria que o trabalho manual proporciona, silenciando a
+                        sua mente e tudo ao seu redor. Viva o momento presente. Durante as práticas artesanais, o
+                        mindfullness, que quer dizer “atenção plena”, é estimulado, pois exige concentração e que o artesão
+                        ou artesã esteja totalmente focado na ação que está realizando.
+                    </p>
+                    <h5 class="titulo2">Manuais</h5>
+                    <p>
+                        Em tempos de “sociedade do cansaço”, em que estamos expostos a uma enxurrada de informações que se
+                        renovam rapidamente, o fazer manual é um ponto de equilíbrio. Por isso, você pode conectar novamente
+                        contigo mesmo, com sua essência e com o momento presente.
+                    </p>
+                    <h5 class="titulo2">Plástico</h5>
+                    <p>
+                        Ao contrário do que acredita o senso comum, produtos produzidos em plástico podem, sim, trazer
+                        benefícios. Pense no seu próprio produto. Imagine ele agora sem validade, com o plástico isso é
+                        possível.
+                    </p>
                 </div>
             </div>
             <div class="img_fazemos">
@@ -270,6 +286,14 @@
                     Veja mais produtos
                 </button>
             </a>
+        </div>
+    </div>
+    <div class="conatiner">
+        <div class="mapa_possition">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3661.7488851299604!2d-46.2799!3d-23.3973!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7e0f43f02677%3A0xa968517991efe97c!2sAv.%20Amianto%2C%201551%20-%20Ch%C3%A1caras%20Copaco%2C%20Aruj%C3%A1%20-%20SP%2C%2007432-575!5e0!3m2!1spt-BR!2sbr!4v1663682549027!5m2!1spt-BR!2sbr"
+                width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
         </div>
     </div>
 

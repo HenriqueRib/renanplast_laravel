@@ -97,7 +97,6 @@
                     @if ($produto->serie != null)
                         <p><b>Serie: {{ $produto->serie }}</b></p>
                     @else
-                        <p> <b> Sem estoque </b></p>
                     @endif
                 </div>
                 <br>

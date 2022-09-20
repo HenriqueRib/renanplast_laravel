@@ -53,12 +53,12 @@
                         <div class="form-group item__column" style="display: flex">
                             <div>
                                 <label for="lote">Lote</label>
-                                <input required type="text" name="lote" id="lote" class="form-control"
+                                <input type="text" name="lote" id="lote" class="form-control"
                                     value="{{ old('lote') }}" maxlength="80">
                             </div>
                             <div style="margin:0 2rem">
                                 <label for="serie">Numero de Série</label>
-                                <input required type="text" name="serie" id="serie" class="form-control"
+                                <input type="text" name="serie" id="serie" class="form-control"
                                     value="{{ old('serie') }}" maxlength="80">
                             </div>
                             <div>
@@ -111,7 +111,7 @@
                         <div class="form-group">
                             <label for="observacao">Observação</label>
                             <textarea class="form-control"
-                                placeholder="Digite aqui uma observação se desejar. Esta observação nãoi ficará visivel no site" rows="1"
+                                placeholder="Digite aqui uma observação se desejar. Esta observação não ficará visivel no site" rows="1"
                                 value="{{ old('observacao') }}" name="observacao" id="observacao"></textarea>
                         </div>
                         <div class="form-group">
@@ -161,7 +161,7 @@
                             @csrf
                             <div class="col1 form-input">
                                 <small id="label1" class="form-text text-muted pl-1">
-                                    Procurar pelo título da Notícia
+                                    Procurar pelo produto
                                 </small>
                                 <input type="text" name="nome" id="nome" class="form-control" maxlength="80"
                                     placeholder="Digite o nome do produto" aria-describedby="label1"
@@ -358,18 +358,18 @@
                                         <div class="form-group item__column" style="display: flex">
                                             <div>
                                                 <label for="lote">Lote</label>
-                                                <input required type="text" name="lote" id="lote"
-                                                    class="form-control" value="{{ $post->lote }}" maxlength="80">
+                                                <input type="text" name="lote" id="lote" class="form-control"
+                                                    value="{{ $post->lote }}" maxlength="80">
                                             </div>
                                             <div style="margin:0 2rem">
                                                 <label for="serie">Numero de Série</label>
-                                                <input required type="text" name="serie" id="serie"
-                                                    class="form-control" value="{{ $post->serie }}" maxlength="80">
+                                                <input type="text" name="serie" id="serie" class="form-control"
+                                                    value="{{ $post->serie }}" maxlength="80">
                                             </div>
                                             <div>
                                                 <label for="preco">Preço</label>
-                                                <input type="text" name="preco" id="preco"
-                                                    class="form-control" value="{{ $post->preco }}">
+                                                <input type="text" name="preco" id="preco" class="form-control"
+                                                    value="{{ $post->preco }}">
                                             </div>
                                         </div>
                                         <div class="form-group item__column" style="display: flex">
@@ -445,7 +445,7 @@
                                         <div class="form-group">
                                             <label for="observacao">Observação</label>
                                             <textarea class="form-control"
-                                                placeholder="Digite aqui uma observação se desejar. Esta observação nãoi ficará visivel no site" rows="1"
+                                                placeholder="Digite aqui uma observação se desejar. Esta observação não ficará visivel no site" rows="1"
                                                 value="{{ $post->observacao }}" name="observacao" id="observacao"></textarea>
                                         </div>
                                         <div class="form-group">
