@@ -29,6 +29,9 @@
                         (11) 95312-5814
                     </p>
                     <p class="link" style="margin: 5px 0">
+                        renanplast@gmail.com
+                    </p>
+                    <p class="link" style="margin: 5px 0">
                         Segunda a Quinta: Das 08h00 às 18h00
                     </p>
                     <p class="link" style="margin: 5px 0">

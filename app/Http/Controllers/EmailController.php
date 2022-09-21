@@ -14,7 +14,6 @@ class EmailController extends Controller
 {
     public function contatoEmail(Request $request)
     {
-        //   Log::debug('contatoEmail', ['res' => $arr]);
         $params = $request->all();
         if (!isset($params["email"])) {
             $request->session()->flash('error', "Digite um e-mail valido");
@@ -28,11 +27,10 @@ class EmailController extends Controller
         try {
             Mail::send('mails.contato', $params, function ($message) use ($params) {
                 $message->from('naoresposnda@codeline43.com.br', 'Contato Site');
-                $message->to('ribeiro.henriquem@gmail.com', 'Usuario');
+                $message->to('renanplast@gmail.com', 'Usuario');
                 $message->subject($params["subject"]);
                 $message->priority(3);
             });
-            // $request->session()->flash('status', 'E-mail enviado com sucesso! Por favor, verifique sua caixa de entrada e SPAM.');
             $request->session()->flash('status', 'Enviado com sucesso!');
             return redirect()->back();
         } catch (Exception $e) {
