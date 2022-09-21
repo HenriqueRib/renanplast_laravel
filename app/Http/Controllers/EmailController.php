@@ -27,8 +27,8 @@ class EmailController extends Controller
 
         try {
             Mail::send('mails.contato', $params, function ($message) use ($params) {
-                $message->from('contato@renaplast.com.br', 'Contato Site');
-                $message->to('contato@renaplast.com.br', 'Usuario');
+                $message->from('naoresposnda@codeline43.com.br', 'Contato Site');
+                $message->to('ribeiro.henriquem@gmail.com', 'Usuario');
                 $message->subject($params["subject"]);
                 $message->priority(3);
             });
@@ -41,7 +41,7 @@ class EmailController extends Controller
                 'arquivo' => $e->getFile(),
                 'linha' => $e->getLine(),
                 'email' => $params['email'],
-                'name' => $params['name'],
+                'name' => $params['nome'],
             ]);
             $request->session()->flash('error', "Não foi possivel enviar. Tente novamente mais tarde.");
             return redirect()->back()->withInput();

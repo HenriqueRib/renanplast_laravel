@@ -60,7 +60,7 @@
                 </div>
             </div>
             @php
-                $esconde = 1;
+                $esconde = 0;
             @endphp
             @push('footerData')
                 <script>
@@ -81,7 +81,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Contato</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Seu Contato foi ...</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -132,9 +132,9 @@
                             <div class="alert alert-danger email-validation hide-self">
                                 Digite um e-mail valido
                             </div>
-                            <label for="assunto">Assunto</label>
-                            <input type="text" class="form-control" placeholder="Digite aqui o assunto" name="assunto"
-                                id="assunto" required>
+                            <label for="subject">Assunto</label>
+                            <input type="text" class="form-control" placeholder="Digite aqui o assunto" name="subject"
+                                id="subject">
                             <label for="mensagem">Mensagem</label>
                             <textarea required class="form-control" placeholder="Digite aqui sua mensagem" rows="6" name="mensagem"
                                 id="text" required></textarea>

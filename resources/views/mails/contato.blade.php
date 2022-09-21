@@ -12,9 +12,10 @@
                 <b>Olá! <br> Você Recebeu uma nova mensagem via formulário de contato!</b>
                 <br>
                 <br>
-                <b>Nome: </b> {{ $name }} <br>
+                <b>Nome: </b> {{ $nome }} <br>
                 <b>Email: </b> <a href="mailto:{{ $email }}">{{ $email }}</a> <br>
-                <b>Mensagem: </b> {{ $text }} <br>
+                <b>Telefone: </b> {{ $telefone }} <br>
+                <b>Mensagem: </b> {{ $mensagem }} <br>
                 <b>Horário: </b> {{ \Carbon\Carbon::now()->format('d/m/Y H:i') }}
             </p>
             <br>
