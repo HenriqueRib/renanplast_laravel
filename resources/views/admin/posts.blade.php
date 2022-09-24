@@ -159,7 +159,7 @@
                                             <textarea class="form-control" name="txt" id="txt_post_id_{{ $post->id }}" class="txt">{{ $post->txt }}</textarea>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn_custom">Salvar Post</button>
+                                            <button type="submit" class="btn btn_custom">Salvar Produto</button>
                                             <button type="reset" class="btn btn_custom2">Limpar Dados</button>
                                             <a class="btn btn-danger" data-toggle="collapse"
                                                 href="#collapse_id_{{ $post->id }}" role="button" aria-expanded="false"

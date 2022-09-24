@@ -473,7 +473,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn_custom">Salvar Post</button>
+                                            <button type="submit" class="btn btn_custom">Salvar Produto</button>
                                             <a class="btn btn-danger" data-toggle="collapse"
                                                 href="#collapse_id_{{ $post->id }}" role="button"
                                                 aria-expanded="false"
