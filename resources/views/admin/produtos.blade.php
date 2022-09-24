@@ -193,7 +193,7 @@
                                     aria-describedby="label2">
                                     <option selected disabled>
                                         @if (isset($paramsativo))
-                                            {{ $paramsativo == 0 ? 'Não' : 'Sim' }}
+                                            {{ $paramsativo == 'Não' ? 'Não' : 'Sim' }}
                                         @else
                                             Escolha uma Opção
                                         @endif
