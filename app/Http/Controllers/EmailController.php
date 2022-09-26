@@ -27,7 +27,7 @@ class EmailController extends Controller
         try {
             Mail::send('mails.contato', $params, function ($message) use ($params) {
                 $message->from('naoresposnda@codeline43.com.br', 'Contato Site');
-                $message->to('renanplast@gmail.com', 'Usuario');
+                $message->to('sac@renanplast.com.br', 'Usuario');
                 $message->subject($params["subject"]);
                 $message->priority(3);
             });

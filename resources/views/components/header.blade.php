@@ -13,10 +13,10 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button> --}}
-    
+
                 <input type="checkbox" id="checkbox4" class="checkbox4 visuallyHidden navbar-toggler btn_menu"
-                    type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <label for="checkbox4">
                     <div class="hamburger hamburger4">
                         <span class="bar bar1"></span>
@@ -42,7 +42,7 @@
                         <a class="nav-link" href="{{ route('contato') }}">Contato</a>
                     </li>
                     <li class="nav-item nav_titulo">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank">
                             <i class="fab fa-whatsapp btn_whats"></i>
                         </a>
                     </li>
