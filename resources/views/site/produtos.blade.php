@@ -114,7 +114,7 @@
         <h2 class="titulo">Mais produtos</h2>
         <div class="mais_produtos">
             <div class="card_produtos">
-                <div class="row" style="justify-content: space-around;">
+                <div class="row" style="justify-content: space-between;">
                     @foreach ($produtos as $produto)
                         <div class="col-4 mt-5">
                             <a href="produto/{{ $produto->id }}" class="link">
