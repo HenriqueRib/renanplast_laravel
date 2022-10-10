@@ -111,13 +111,13 @@
         </div>
     </div>
 
-    <div class="efeito">
+    {{-- <div class="efeito">
         <marquee behavior="scroll" direction="right" scrollamount="15">
             <div>
                 <img class="corda" src="/img/site/icones/corda.png">
             </div>
         </marquee>
-    </div>
+    </div> --}}
 
     <div class="container">
         <h2 class="titulo">Nosso principais produtos</h2>
@@ -174,13 +174,13 @@
         </a>
     </div>
 
-    <div class="efeito">
+    {{-- <div class="efeito">
         <marquee behavior="scroll" direction="left" scrollamount="15">
             <div>
                 <img class="corda" src="/img/site/icones/corda.png">
             </div>
         </marquee>
-    </div>
+    </div> --}}
 
     <div class="container">
         <h2 class="titulo">O que proporcionamos ao nossos clientes</h2>
@@ -223,13 +223,13 @@
         </div>
     </div>
 
-    <div class="efeito">
+    {{-- <div class="efeito">
         <marquee behavior="scroll" direction="right" scrollamount="15">
             <div>
                 <img class="corda" src="/img/site/icones/corda.png">
             </div>
         </marquee>
-    </div>
+    </div> --}}
 
     <div class="container">
         <h2 class="titulo">Mais produtos</h2>
