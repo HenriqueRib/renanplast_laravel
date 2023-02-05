@@ -42,7 +42,7 @@
                         <a class="nav-link" href="{{ route('contato') }}">Contato</a>
                     </li>
                     <li class="nav-item nav_titulo">
-                        <a class="nav-link" href="https://api.whatsapp.com/send?phone=5511953125814" target="_blank">
+                        <a class="nav-link" href="https://api.whatsapp.com/send?phone=5511942342290" target="_blank">
                             <i class="fab fa-whatsapp btn_whats"></i>
                         </a>
                     </li>

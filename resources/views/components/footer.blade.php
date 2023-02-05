@@ -26,7 +26,8 @@
                 <div class="footer_mobile">
                     <h3 class="titulo_footer"> Central de Atendimento</h3>
                     <p class="link" style="margin: 5px 0">
-                        (11) 95312-5814
+                        {{-- (11) 95312-5814 --}}
+                        (11) 94234-2290
                     </p>
                     <p class="link" style="margin: 5px 0">
                         sac@renanplast.com.br
@@ -47,7 +48,7 @@
     <div class="container">
         <div class="footer_logos">
             <div class="copy">
-                <p>RenanPlast &copy; 2022. Todos os Direitos Reservados</p>
+                <p>RenanPlast &copy; 2022 - 2023. Todos os Direitos Reservados</p>
             </div>
             <div>
                 Desenvolvido por
